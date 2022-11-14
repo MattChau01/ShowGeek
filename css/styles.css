@@ -1,0 +1,59 @@
+.container-body {
+  height: 85%;
+  position: absolute;
+  top: 9%;
+  left: 0;
+  right: 0;
+  background-color: #a0baff;
+  background-image: url("/images/movies-background.png");
+  background-size: cover;
+}
+
+.row {
+  display: flex;
+}
+
+.column-half {
+  flex-basis: calc(100%/2);
+}
+
+h1 {
+  font-family: Poppins, sans-serif;
+  color: white;
+}
+
+header {
+  background-color: #608afc;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+
+footer {
+  height: 100px;
+  background-color: #608afc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+.film {
+  font-size: 40px;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.home,
+.list {
+  font-size: 40px;
+  padding: 25px;
+}
