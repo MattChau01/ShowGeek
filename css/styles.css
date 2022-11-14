@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   background-color: #a0baff;
-  background-image: url("/images/movies-background.png");
+  background-image: url("/images/movies-background-25.png");
   background-size: cover;
 }
 
@@ -17,8 +17,35 @@
   flex-basis: calc(100%/2);
 }
 
-h1 {
+.ch-r {
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+  margin-top: 2.5%;
+  top: 15;
+  width: 500px;
+  text-align: right;
+  text-shadow: 0 5px 70px;
+}
+
+.font-bold {
   font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: white;
+}
+
+.font-semibold {
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  font-size: 45px;
+  color: white;
+}
+
+.font-light {
+  font-family: Poppins, sans-serif;
+  font-weight: 200;
+  font-size: 30px;
   color: white;
 }
 
@@ -29,6 +56,7 @@ header {
   right: 0;
   left: 0;
   z-index: 10;
+  box-shadow: 0 15px 55px;
 }
 
 footer {
@@ -39,6 +67,7 @@ footer {
   left: 0;
   right: 0;
   z-index: 20;
+  box-shadow: 0 -10px 55px;
 }
 
 .film {
@@ -56,4 +85,32 @@ footer {
 .list {
   font-size: 40px;
   padding: 25px;
+}
+
+.search-header {
+  position: absolute;
+  top: 20%;
+  left: 38%;
+  text-shadow: 0 5px 70px;
+}
+
+.search-bar {
+  margin-top: 20px;
+  padding-left: 50px;
+  font-family: Poppins, sans-serif;
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  top: 35%;
+  left: 41%;
+  border: none;
+  border-radius: 1rem;
+}
+
+.mag-glass {
+  font-size: 25px;
+  position: absolute;
+  top: 39.5%;
+  left: 41.5%;
+  z-index: 10;
 }
