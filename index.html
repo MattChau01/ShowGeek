@@ -17,7 +17,7 @@
 <body>
 
   <!--header-->
-  <header class="row">
+  <header class="row header">
     <i class="fa-solid fa-film film"></i>
     <p class="font-bold">ShowGeek</p>
   </header>
@@ -25,27 +25,33 @@
   <!--main-->
   <main class="container-body">
     <div data-view="home">
-      <div class="row">
-        <div class="column-half ch-r">
-          <p class="font-light">Talk about your favorite TV shows here!</p>
+      <form id="form">
+        <div class="row">
+          <div class="column-full right">
+            <p class="font-light ch-r">Talk about your favorite TV shows here!</p>
+          </div>
         </div>
-      </div>
-      <div class="row search-header">
-        <p class="font-semibold">Search for a title here:</p>
-      </div>
-      <div class="row ">
-        <i class="fa-solid fa-magnifying-glass mag-glass"></i>
-        <input type="text" placeholder=" Search here..." class="search-bar">
-      </div>
-      <div class="row">
-        <button type="submit" class="search-button">Search</button>
-      </div>
+        <div class="row-center">
+          <div class="center">
+            <label class="font-semibold search-header">Search for a title here:</label>
+          </div>
+        </div>
+        <div class="row-center">
+          <div class="column-full">
+            <i class="fa-solid fa-magnifying-glass mag-glass"></i>
+            <input type="text" placeholder=" Search here..." class="search-bar">
+          </div>
+        </div>
+        <div class="row-center">
+          <button type="submit" class="search-button">Search</button>
+        </div>
+      </form>
     </div>
   </main>
 
   <!--footer-->
   <footer>
-    <div class="row">
+    <div class="row-center footer">
       <div class="column-half center">
         <i class="fa-solid fa-house home"></i>
       </div>
