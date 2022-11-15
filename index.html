@@ -8,12 +8,58 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+
+  <!--header-->
+  <header class="row header">
+    <i class="fa-solid fa-film film"></i>
+    <p class="font-bold">ShowGeek</p>
   </header>
-  <main>
+
+  <!--main-->
+  <main class="container-body">
+    <div data-view="home">
+      <form id="form">
+        <div class="row">
+          <div class="column-full right">
+            <p class="font-light ch-r">Talk about your favorite TV shows here!</p>
+          </div>
+        </div>
+        <div class="row-center">
+          <div class="center">
+            <label class="font-semibold search-header">Search for a title here:</label>
+          </div>
+        </div>
+        <div class="row-center">
+          <div class="column-full search-column">
+            <input type="text" placeholder=" Search here..." class="search-bar">
+          </div>
+        </div>
+        <div class="row-center">
+          <button type="submit" class="search-button">Search</button>
+        </div>
+      </form>
+    </div>
   </main>
+
+  <!--footer-->
+  <footer>
+    <div class="row-center footer">
+      <div class="column-half center">
+        <i class="fa-solid fa-house home"></i>
+      </div>
+      <div class="column-half center">
+        <i class="fa-solid fa-list list"></i>
+      </div>
+    </div>
+  </footer>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

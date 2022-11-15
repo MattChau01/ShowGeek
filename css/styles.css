@@ -1,0 +1,151 @@
+.container-body {
+  height: 655px;
+  background-color: #a0baff;
+  background-image: url("/images/movies-background-25.png");
+  background-size: cover;
+}
+
+.row {
+  display: flex;
+}
+
+.row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: calc(100%/2);
+}
+
+.column-third {
+  flex-basis: calc(100%/3);
+}
+
+.ch-r {
+  width: 250px;
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  text-shadow: 0 5px 70px;
+}
+
+.font-bold {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: white;
+}
+
+.font-semibold {
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: white;
+}
+
+.font-light {
+  font-family: Poppins, sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  color: white;
+}
+
+.header {
+  background-color: #608afc;
+  z-index: 20;
+  box-shadow: 0 15px 55px;
+}
+
+.footer {
+  height: 100px;
+  background-color: #608afc;
+  bottom: 0;
+  z-index: 20;
+  box-shadow: 0 -10px 55px;
+}
+
+.film {
+  font-size: 40px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.home,
+.list {
+  font-size: 30px;
+  padding: 25px;
+  cursor: pointer;
+}
+
+.search-column {
+  display: flex;
+  justify-content: center;
+}
+
+.search-header {
+  margin-top: 40%;
+  text-shadow: 0 5px 70px;
+  font-size: 30px;
+}
+
+.search-bar {
+  margin-top: 20px;
+  padding-left: 50px;
+  font-family: Poppins, sans-serif;
+  width: 350px;
+  height: 50px;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  box-shadow: 10px 10px 15px;
+  background-image: url("/images/magnifying-glass.webp");
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: 8px center;
+}
+
+.search-button {
+  font-family: Poppins, sans-serif;
+  font-size: 30px;
+  color: white;
+  background-color: #0f1fb8;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-top: 60px;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 500px) {
+  .container-body {
+    height: 750px;
+  }
+
+  .footer {
+    height: 80px;
+  }
+
+  .search-header {
+    margin-top: 40%;
+    text-shadow: 0 5px 70px;
+    font-size: 35px;
+  }
+}
