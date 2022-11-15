@@ -18,3 +18,9 @@ function getShowResult(name) {
   });
   xhr.send();
 }
+
+// API above
+
+var $backPage = document.querySelector('.backpage');
+$backPage.addEventListener('click', function () {
+});

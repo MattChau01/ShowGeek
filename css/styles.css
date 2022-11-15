@@ -114,6 +114,7 @@
   background-repeat: no-repeat;
   background-size: 35px;
   background-position: 8px center;
+  cursor: pointer;
 }
 
 .search-button {
@@ -137,6 +138,12 @@
 
 .hidden {
   display: none;
+}
+
+.backpage {
+  font-size: 40px;
+  padding: 15px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {
