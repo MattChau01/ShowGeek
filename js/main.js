@@ -29,3 +29,22 @@ $backPage.addEventListener('click', function () {
 // var $showResult = document.getElementById('show-result');
 
 // var $title = document.createElement('p');
+
+// NO CODE BELOW
+// TESTING ZONE FOR API
+function test(name) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q==' + name);
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    // if (xhr.status === 404) {
+
+    // }
+    // console.log(xhr.status);
+    // console.log(xhr.response);
+    // console.log(xhr.response.image.original);
+  });
+  xhr.send();
+}
+
+test('the haunting of hill house');
