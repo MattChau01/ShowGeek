@@ -12,25 +12,9 @@ function getShowResult(name) {
   xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q==' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log(xhr.status);
-    // console.log(xhr.response);
+    // if (xhr.status === 404) {
+
+    // }
   });
   xhr.send();
 }
-
-// TEST API
-
-// function oneResult(name) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q==' + name);
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', function () {
-//     console.log(xhr.status);
-//     console.log(xhr.response);
-//     console.log(xhr.response.name);
-//     console.log(xhr.response.summary);
-//   });
-//   xhr.send();
-// }
-
-// oneResult('the haunting of hill house');
