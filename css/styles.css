@@ -1,4 +1,5 @@
 .container-body {
+  display: flex;
   height: 655px;
   background-color: #a0baff;
   background-image: url("/images/movies-background-25.png");
@@ -57,8 +58,8 @@
 
 .header {
   background-color: #608afc;
-  z-index: 20;
   box-shadow: 0 15px 55px;
+  z-index: 10;
 }
 
 .footer {
@@ -66,7 +67,7 @@
   background-color: #608afc;
   bottom: 0;
   z-index: 20;
-  box-shadow: 0 -10px 55px;
+  box-shadow: 0 -10px 90px;
 }
 
 .film {
