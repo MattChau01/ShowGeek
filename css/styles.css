@@ -134,9 +134,13 @@
   margin-right: 5%;
 }
 
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 500px) {
   .container-body {
-    height: 750px;
+    height: 760px;
   }
 
   .footer {
