@@ -24,3 +24,8 @@ function getShowResult(name) {
 var $backPage = document.querySelector('.backpage');
 $backPage.addEventListener('click', function () {
 });
+
+// DOM Creation:
+// var $showResult = document.getElementById('show-result');
+
+// var $title = document.createElement('p');
