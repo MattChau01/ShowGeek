@@ -5,7 +5,7 @@ $formSubmit.addEventListener('submit', function (event) {
   var search = $searchRequest.value;
   var object = { search };
   getShowResult(object.search);
-  viewSwap('results');
+  viewSwap('result');
 });
 
 function getShowResult(name) {
@@ -120,12 +120,12 @@ $back.addEventListener('click', function (event) {
 });
 
 function viewSwap(dataView) {
-  dataView = event.target.getAttribute('data-view');
+  data.view = dataView;
 
-  if (event.target.getAttribute('data-view') === 'home') {
+  if (dataView === 'home') {
     $view[0].classList.remove('hidden');
     $view[1].classList.add('hidden');
-  } else if ((event.target.getAttribute('data-view') === 'result') || (event.target.getAttribute('data-view') !== 'home')) {
+  } else if ((dataView === 'result') || (dataView !== 'home')) {
     $view[0].classList.add('hidden');
     $view[1].classList.remove('hidden');
   }
