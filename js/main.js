@@ -4,29 +4,41 @@ $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
   var search = $searchRequest.value;
   var object = { search };
-  viewSwap('result');
   getShowResult(object.search);
+  viewSwap('results');
 });
 
 function getShowResult(name) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q==' + name);
+  xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q=' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // searchResult(xhr.response.name);
-    // if (xhr.status === 404) {
-
-    // }
-    // console.log(xhr.response);
     searchResult(xhr.response);
+    // console.log(xhr.response);
+    // console.log(xhr.response.summary);
+    // console.log(textOnly(xhr.response.summary));
   });
   xhr.send();
+}
+
+// extract text
+function textOnly(text) {
+  var summary = document.createElement('p');
+  summary.innerHTML = text;
+  return summary.textContent;
+}
+
+// truncate length
+function truncate(length, string) {
+  var cut = string.slice(0, length) + '...';
+  return cut;
 }
 
 // API above
 
 var $backPage = document.querySelector('.backpage');
 $backPage.addEventListener('click', function () {
+  $formSubmit.reset();
 });
 
 // DOM Creation:
@@ -70,7 +82,7 @@ function searchResult(show) {
   summaryResult.setAttribute('class', 'font-light');
   summaryResult.classList.add('summary');
   // Sample entry
-  var summary = document.createTextNode(show.summary);
+  var summary = document.createTextNode(truncate(325, textOnly(show.summary)));
   // console.log(show.summary);
   summaryResult.appendChild(summary);
   divTwoA.appendChild(summaryResult);
@@ -105,22 +117,22 @@ var $view = document.querySelectorAll('.view');
 var $home = document.querySelector('.home');
 // var $list = document.querySelector('.list');
 var $back = document.querySelector('.backpage');
-var $search = document.querySelector('.search-button');
 
-$home.addEventListener('click', viewSwap);
-$back.addEventListener('click', viewSwap);
-$search.addEventListener('click', function () {
-  // console.log(event.target.getAttribute('data-view'));
-  // console.log(typeof event.target.getAttribute('data-view'));
+$home.addEventListener('click', function (event) {
+  viewSwap('home');
 });
+$back.addEventListener('click', function (event) {
+  viewSwap('home');
+});
+// $search.addEventListener('submit', viewSwap);
 
 function viewSwap(dataView) {
-  data.view = dataView;
+  dataView = event.target.getAttribute('data-view');
 
   if (event.target.getAttribute('data-view') === 'home') {
     $view[0].classList.remove('hidden');
     $view[1].classList.add('hidden');
-  } else if (event.target.getAttribute('data-view') === 'result') {
+  } else if ((event.target.getAttribute('data-view') === 'result') || (event.target.getAttribute('data-view') !== 'home')) {
     $view[0].classList.add('hidden');
     $view[1].classList.remove('hidden');
   }

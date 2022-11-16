@@ -158,7 +158,7 @@
 .title-result {
   color: black;
   text-shadow: 0 2px 80px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .img-result {
@@ -232,3 +232,9 @@
     height: 50px;
   }
 }
+
+/* @media screen and (min-height: 900px) {
+  .container-body {
+    height: 100%;
+  }
+} */
