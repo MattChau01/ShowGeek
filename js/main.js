@@ -4,6 +4,7 @@ $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
   var search = $searchRequest.value;
   var object = { search };
+  viewSwap('result');
   getShowResult(object.search);
 });
 
@@ -16,6 +17,8 @@ function getShowResult(name) {
     // if (xhr.status === 404) {
 
     // }
+    // console.log(xhr.response);
+    searchResult(xhr.response);
   });
   xhr.send();
 }
@@ -29,7 +32,8 @@ $backPage.addEventListener('click', function () {
 // DOM Creation:
 // TEST RUN
 
-function searchResult(name) {
+function searchResult(show) {
+
   // parent div 1
   var divOne = document.createElement('div');
   divOne.setAttribute('class', 'column-full');
@@ -41,7 +45,7 @@ function searchResult(name) {
   titleResult.setAttribute('class', 'font-bold');
   titleResult.classList.add('title-result');
   // Sample entry
-  var titleName = document.createTextNode('The Haunting Hill House');
+  var titleName = document.createTextNode(show.name);
   titleResult.appendChild(titleName);
   divOneA.appendChild(titleResult);
   divOne.appendChild(divOneA);
@@ -51,7 +55,7 @@ function searchResult(name) {
   divOneB.classList.add('img-result');
 
   var imgResult = document.createElement('img');
-  imgResult.setAttribute('src', 'https://static.tvmaze.com/uploads/images/medium_portrait/168/420526.jpg');
+  imgResult.setAttribute('src', show.image.medium);
   divOneB.appendChild(imgResult);
   divOne.appendChild(divOneB);
 
@@ -66,7 +70,8 @@ function searchResult(name) {
   summaryResult.setAttribute('class', 'font-light');
   summaryResult.classList.add('summary');
   // Sample entry
-  var summary = document.createTextNode('The haunting of hill house is a modern reimagining of Shirley Jackson\'s classic 1959 novel. Flashing between past and present, a fractured family confronts haunting memories of their old home and the terrifying events that drove them from it.');
+  var summary = document.createTextNode(show.summary);
+  // console.log(show.summary);
   summaryResult.appendChild(summary);
   divTwoA.appendChild(summaryResult);
   divTwo.appendChild(divTwoA);
@@ -93,23 +98,30 @@ function searchResult(name) {
 
 }
 
-searchResult(name);
+// view swap
 
-// NO CODE BELOW
-// TESTING ZONE FOR API
-function test(name) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q==' + name);
-  xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {
-    // if (xhr.status === 404) {
+var $view = document.querySelectorAll('.view');
 
-    // }
-    // console.log(xhr.status);
-    // console.log(xhr.response);
-    // console.log(xhr.response.image.original);
-  });
-  xhr.send();
+var $home = document.querySelector('.home');
+// var $list = document.querySelector('.list');
+var $back = document.querySelector('.backpage');
+var $search = document.querySelector('.search-button');
+
+$home.addEventListener('click', viewSwap);
+$back.addEventListener('click', viewSwap);
+$search.addEventListener('click', function () {
+  // console.log(event.target.getAttribute('data-view'));
+  // console.log(typeof event.target.getAttribute('data-view'));
+});
+
+function viewSwap(dataView) {
+  data.view = dataView;
+
+  if (event.target.getAttribute('data-view') === 'home') {
+    $view[0].classList.remove('hidden');
+    $view[1].classList.add('hidden');
+  } else if (event.target.getAttribute('data-view') === 'result') {
+    $view[0].classList.add('hidden');
+    $view[1].classList.remove('hidden');
+  }
 }
-
-test('the haunting of hill house');

@@ -25,7 +25,7 @@
   <!--main-->
   <main class="container-body">
     <!-- home -->
-    <div data-view="home" class="column-full hidden">
+    <div data-view="home" class="column-full view">
       <form id="form">
         <div class="row">
           <div class="column-full right">
@@ -39,19 +39,19 @@
         </div>
         <div class="row-center">
           <div class="column-full search-column">
-            <input type="text" placeholder=" Search here..." class="search-bar">
+            <input required type="text" placeholder=" Search here..." class="search-bar">
           </div>
         </div>
         <div class="row-center">
-          <button type="submit" class="search-button">Search</button>
+          <button type="submit" class="search-button" data-view="result">Search</button>
         </div>
       </form>
     </div>
     <!-- result -->
-    <div data-view="result" class="column-full">
+    <div data-view="result" class="column-full view hidden">
       <div class="row">
         <div class="column-full">
-          <i class="fa-solid fa-arrow-left backpage"></i>
+          <i class="fa-solid fa-arrow-left backpage" data-view="home"></i>
         </div>
       </div>
       <div id="show-result" class="row-result">
@@ -89,10 +89,10 @@
   <footer>
     <div class="row-center footer">
       <div class="column-half center">
-        <i class="fa-solid fa-house home"></i>
+        <i class="fa-solid fa-house home" data-view="home"></i>
       </div>
       <div class="column-half center">
-        <i class="fa-solid fa-list list"></i>
+        <i class="fa-solid fa-list list" data-view="list"></i>
       </div>
     </div>
   </footer>

@@ -141,6 +141,10 @@
   margin-right: 5%;
 }
 
+.view {
+  visibility: visible;
+}
+
 .hidden {
   display: none;
 }
@@ -227,8 +231,4 @@
     width: 200px;
     height: 50px;
   }
-
-  /* .column-full {
-    flex-basis: 50%;
-  } */
 }
