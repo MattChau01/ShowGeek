@@ -80,6 +80,10 @@ function searchResult(name) {
   addButton.classList.add('add-list');
   var $add = document.createTextNode('Add to list');
   addButton.appendChild($add);
+  addButton.addEventListener('click', function () {
+    // console.log('click');
+  });
+
   divTwoB.appendChild(addButton);
   divTwo.appendChild(divTwoB);
 
