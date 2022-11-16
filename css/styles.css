@@ -10,6 +10,11 @@
   display: flex;
 }
 
+.row-result {
+  display: flex;
+  flex-direction: column;
+}
+
 .row-center {
   display: flex;
   justify-content: center;
@@ -173,6 +178,7 @@
   width: 175px;
   height: 40px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {
@@ -188,5 +194,37 @@
     margin-top: 40%;
     text-shadow: 0 5px 70px;
     font-size: 35px;
+  }
+
+  .summary {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .row-result {
+    flex-direction: row;
+  }
+
+  .title-result {
+    margin-top: 10%;
+    font-size: 30px;
+  }
+
+  .img-result {
+    width: 100%;
+    height: 400px;
+  }
+
+  .summary {
+    margin-top: 10%;
+    margin-right: 10px;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .add-list {
+    width: 200px;
+    height: 50px;
   }
 }
