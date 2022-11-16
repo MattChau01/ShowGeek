@@ -24,7 +24,8 @@
 
   <!--main-->
   <main class="container-body">
-    <div data-view="home">
+    <!-- home -->
+    <div data-view="home" class="column-full view">
       <form id="form">
         <div class="row">
           <div class="column-full right">
@@ -33,18 +34,29 @@
         </div>
         <div class="row-center">
           <div class="center">
-            <label class="font-semibold search-header">Search for a title here:</label>
+            <label for="search" class="font-semibold search-header">Search for a title here:</label>
           </div>
         </div>
         <div class="row-center">
           <div class="column-full search-column">
-            <input type="text" placeholder=" Search here..." class="search-bar">
+            <input name="searchbar" id="search" required type="text" placeholder=" Search here..." class="search-bar">
           </div>
         </div>
         <div class="row-center">
-          <button type="submit" class="search-button">Search</button>
+          <button type="submit" class="search-button" data-view="result">Search</button>
         </div>
       </form>
+    </div>
+    <!-- result -->
+    <div data-view="result" class="column-full view hidden">
+      <div class="row">
+        <div class="column-full">
+          <i class="fa-solid fa-arrow-left backpage" data-view="home"></i>
+        </div>
+      </div>
+      <div id="show-result" class="row-result">
+        <!-- appending DOM here -->
+      </div>
     </div>
   </main>
 
@@ -52,10 +64,10 @@
   <footer>
     <div class="row-center footer">
       <div class="column-half center">
-        <i class="fa-solid fa-house home"></i>
+        <i class="fa-solid fa-house home" data-view="home"></i>
       </div>
       <div class="column-half center">
-        <i class="fa-solid fa-list list"></i>
+        <i class="fa-solid fa-list list" data-view="list"></i>
       </div>
     </div>
   </footer>

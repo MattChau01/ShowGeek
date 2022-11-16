@@ -1,4 +1,5 @@
 .container-body {
+  display: flex;
   height: 655px;
   background-color: #a0baff;
   background-image: url("/images/movies-background-25.png");
@@ -7,6 +8,11 @@
 
 .row {
   display: flex;
+}
+
+.row-result {
+  display: flex;
+  flex-direction: column;
 }
 
 .row-center {
@@ -57,8 +63,8 @@
 
 .header {
   background-color: #608afc;
-  z-index: 20;
   box-shadow: 0 15px 55px;
+  z-index: 10;
 }
 
 .footer {
@@ -66,7 +72,7 @@
   background-color: #608afc;
   bottom: 0;
   z-index: 20;
-  box-shadow: 0 -10px 55px;
+  box-shadow: 0 -10px 90px;
 }
 
 .film {
@@ -113,6 +119,7 @@
   background-repeat: no-repeat;
   background-size: 35px;
   background-position: 8px center;
+  cursor: pointer;
 }
 
 .search-button {
@@ -134,9 +141,53 @@
   margin-right: 5%;
 }
 
+.view {
+  visibility: visible;
+}
+
+.hidden {
+  display: none;
+}
+
+.backpage {
+  font-size: 40px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.title-result {
+  color: black;
+  text-shadow: 0 2px 80px;
+  font-size: 25px;
+}
+
+.img-result {
+  width: 100%;
+  height: 225px;
+}
+
+.summary {
+  background-color: #e0e0e0;
+  font-size: 13px;
+  text-align: center;
+  color: black;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.add-list {
+  background-color: #0f1fb8;
+  border: none;
+  border-radius: 10px;
+  width: 175px;
+  height: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 500px) {
   .container-body {
-    height: 750px;
+    height: 760px;
   }
 
   .footer {
@@ -147,5 +198,37 @@
     margin-top: 40%;
     text-shadow: 0 5px 70px;
     font-size: 35px;
+  }
+
+  .summary {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .row-result {
+    flex-direction: row;
+  }
+
+  .title-result {
+    margin-top: 10%;
+    font-size: 30px;
+  }
+
+  .img-result {
+    width: 100%;
+    height: 400px;
+  }
+
+  .summary {
+    margin-top: 10%;
+    margin-right: 10px;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .add-list {
+    width: 200px;
+    height: 50px;
   }
 }
