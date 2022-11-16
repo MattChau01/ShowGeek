@@ -14,9 +14,6 @@ function getShowResult(name) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     searchResult(xhr.response);
-    // console.log(xhr.response);
-    // console.log(xhr.response.summary);
-    // console.log(textOnly(xhr.response.summary));
   });
   xhr.send();
 }
@@ -42,7 +39,6 @@ $backPage.addEventListener('click', function () {
 });
 
 // DOM Creation:
-// TEST RUN
 
 function searchResult(show) {
 
@@ -81,9 +77,8 @@ function searchResult(show) {
   var summaryResult = document.createElement('p');
   summaryResult.setAttribute('class', 'font-light');
   summaryResult.classList.add('summary');
-  // Sample entry
+
   var summary = document.createTextNode(truncate(325, textOnly(show.summary)));
-  // console.log(show.summary);
   summaryResult.appendChild(summary);
   divTwoA.appendChild(summaryResult);
   divTwo.appendChild(divTwoA);
@@ -98,7 +93,6 @@ function searchResult(show) {
   var $add = document.createTextNode('Add to list');
   addButton.appendChild($add);
   addButton.addEventListener('click', function () {
-    // console.log('click');
   });
 
   divTwoB.appendChild(addButton);
@@ -124,7 +118,6 @@ $home.addEventListener('click', function (event) {
 $back.addEventListener('click', function (event) {
   viewSwap('home');
 });
-// $search.addEventListener('submit', viewSwap);
 
 function viewSwap(dataView) {
   dataView = event.target.getAttribute('data-view');
