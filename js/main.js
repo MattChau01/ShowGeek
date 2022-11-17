@@ -1,5 +1,5 @@
 var $searchRequest = document.querySelector('.search-bar');
-var $formSubmit = document.getElementById('form');
+var $formSubmit = document.getElementById('formOne');
 $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
   var search = $searchRequest.value;
@@ -35,11 +35,6 @@ function truncate(length, string) {
 }
 
 // API above
-
-var $backPage = document.querySelector('.backpage');
-$backPage.addEventListener('click', function () {
-  $formSubmit.reset();
-});
 
 // DOM Creation:
 
@@ -93,11 +88,15 @@ function searchResult(show) {
   divTwoB.classList.add('img-result');
 
   var addButton = document.createElement('button');
-  addButton.setAttribute('class', 'font-bold');
+  addButton.setAttribute('data-view', 'add-list');
+  addButton.classList.add('font-bold');
   addButton.classList.add('add-list');
   var $add = document.createTextNode('Add to list');
   addButton.appendChild($add);
   addButton.addEventListener('click', function () {
+    // console.log(event.target);
+    viewSwap('add-list');
+    // $view[2].classList.remove('hidden');
   });
 
   divTwoB.appendChild(addButton);
@@ -134,8 +133,26 @@ function viewSwap(dataView) {
   if (dataView === 'home') {
     $view[0].classList.remove('hidden');
     $view[1].classList.add('hidden');
+  } else if (dataView === 'add-list') {
+    $view[2].classList.remove('hidden');
   } else if ((dataView === 'result') || (dataView !== 'home')) {
     $view[0].classList.add('hidden');
     $view[1].classList.remove('hidden');
+    $view[2].classList.add('hidden');
   }
 }
+
+// modal
+
+var $cancel = document.querySelector('.cancel');
+$cancel.addEventListener('click', function () {
+  event.preventDefault();
+  viewSwap('result');
+  // console.log(event.target);
+});
+
+var $confirm = document.querySelector('.confirm');
+$confirm.addEventListener('click', function () {
+  event.preventDefault();
+  // console.log('click');
+});

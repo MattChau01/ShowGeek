@@ -25,8 +25,8 @@
   <!--main-->
   <main class="container-body">
     <!-- home -->
-    <div data-view="home" class="column-full view hidden">
-      <form id="form">
+    <div data-view="home" class="column-full view">
+      <form id="formOne">
         <div class="row">
           <div class="column-full right">
             <p class="font-light ch-r">Talk about your favorite TV shows here!</p>
@@ -48,7 +48,7 @@
       </form>
     </div>
     <!-- result -->
-    <div data-view="result" class="column-full view">
+    <div data-view="result" class="column-full view hidden">
       <div class="row">
         <div class="column-full">
           <i class="fa-solid fa-arrow-left backpage" data-view="home"></i>
@@ -58,43 +58,44 @@
         <!-- appending DOM here -->
       </div>
       <!-- add modal here -->
-      <div data-view="add-list" class="view">
+      <div data-view="add-list" class="view hidden">
 
-        <div class="background">
-          <div class="modal-container">
-            <div class="modal">
-              <p class="modal-header">Would you like to add this show to your list?</p>
-              <div class="row">
-                <label for="stars" class="modal-body">Add a rating: </label>
-                <select id="stars">
-                  <option>Number of stars</option>
-                  <option>0</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-              <div class="row">
-                <label class="modal-body">Add your review:</label>
-              </div>
-              <div class="row-center">
-                <textarea class="comment" placeholder="Type here..."></textarea>
-              </div>
-              <div class="row">
-                <div class="column-half">
-                  <button class="cancel">CANCEL</button>
+        <form id="formTwo">
+          <div class="background">
+            <div class="modal-container">
+              <div class="modal">
+                <p class="modal-header">Would you like to add this show to your list?</p>
+                <div class="row">
+                  <label for="stars" class="modal-body">Add a rating: </label>
+                  <select id="stars">
+                    <option>Number of stars</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
                 </div>
-                <div class="column-half">
-                  <button class="confirm">CONFIRM</button>
+                <div class="row">
+                  <label class="modal-body">Add your review:</label>
+                </div>
+                <div class="row-center">
+                  <textarea class="comment" placeholder="Type here..."></textarea>
+                </div>
+                <div class="row">
+                  <div class="column-half">
+                    <button data-view="result" class="cancel">CANCEL</button>
+                  </div>
+                  <div class="column-half">
+                    <button class="confirm">CONFIRM</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-
+        </form>
       </div>
     </div>
   </main>

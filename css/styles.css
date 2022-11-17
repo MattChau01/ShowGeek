@@ -151,7 +151,7 @@
 
 .backpage {
   font-size: 40px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -179,8 +179,8 @@
   background-color: #0f1fb8;
   border: none;
   border-radius: 10px;
-  width: 100%;
-  height: 100%;
+  width: 175px;
+  height: 40px;
   margin-top: 10px;
   cursor: pointer;
 }
@@ -293,7 +293,7 @@ textarea {
   }
 
   .title-result {
-    margin-top: 10%;
+    margin-top: 1%;
     font-size: 30px;
   }
 
