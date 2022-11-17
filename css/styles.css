@@ -234,11 +234,6 @@ textarea {
   cursor: pointer;
 }
 
-textarea:focus,
-select:focus {
-  border: 1px solid rgb(150 66 233);
-}
-
 .cancel {
   color: black;
   font-family: poppins, sans-serif;
@@ -270,6 +265,13 @@ select:focus {
   width: 100%;
   top: 0;
   left: 0;
+}
+
+.entry-back {
+  background-color: rgb(224 224 224 / 60%);
+  width: 370px;
+  height: 250px;
+  margin: 10px;
 }
 
 @media screen and (min-width: 500px) {

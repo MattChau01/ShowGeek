@@ -62,7 +62,7 @@ function searchResult(show) {
   divOneB.classList.add('img-result');
 
   var imgResult = document.createElement('img');
-  imgResult.setAttribute('src', show.image.medium);
+  imgResult.setAttribute('src', show.image.original);
   divOneB.appendChild(imgResult);
   divOne.appendChild(divOneB);
 
