@@ -151,7 +151,7 @@
 
 .backpage {
   font-size: 40px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -185,6 +185,93 @@
   cursor: pointer;
 }
 
+.modal-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  font-family: Poppins, sans-serif;
+  background-color: #e0e0e0;
+  width: 345px;
+  height: 350px;
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.modal-header {
+  font-size: 16px;
+}
+
+.modal-body {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+select {
+  width: 170px;
+  height: 25px;
+  margin-top: 10px;
+  margin-left: 60px;
+  font-family: poppins, sans-serif;
+  text-align: center;
+  color: gray;
+  cursor: pointer;
+}
+
+textarea {
+  font-family: Poppins, sans-serif;
+  font-weight: lighter;
+  font-size: 13px;
+  color: gray;
+  width: 325px;
+  height: 120px;
+  cursor: pointer;
+}
+
+textarea:focus,
+select:focus {
+  border: 1px solid rgb(150 66 233);
+}
+
+.cancel {
+  color: black;
+  font-family: poppins, sans-serif;
+  border: none;
+  width: 90px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f49292;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.confirm {
+  color: black;
+  font-family: poppins, sans-serif;
+  border: none;
+  width: 90px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #77e56d;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.background {
+  background-color: rgb(0 0 0 / 70%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 @media screen and (min-width: 500px) {
   .container-body {
     height: 760px;
@@ -211,7 +298,7 @@
   }
 
   .title-result {
-    margin-top: 10%;
+    margin-top: 1%;
     font-size: 30px;
   }
 
