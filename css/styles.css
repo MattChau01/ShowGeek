@@ -234,6 +234,11 @@ textarea {
   cursor: pointer;
 }
 
+textarea:focus,
+select:focus {
+  border: 1px solid rgb(150 66 233);
+}
+
 .cancel {
   color: black;
   font-family: poppins, sans-serif;

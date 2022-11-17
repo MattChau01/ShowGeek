@@ -36,7 +36,7 @@ function truncate(length, string) {
 
 // API above
 
-// DOM CREATION:
+// DOM CREATION FOR SEARCH RESULT:
 
 function searchResult(show) {
 
@@ -160,11 +160,26 @@ var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
   event.preventDefault();
   viewSwap('result');
-  // console.log(event.target);
 });
 
-var $confirm = document.querySelector('.confirm');
-$confirm.addEventListener('click', confirmReview);
+// SUBMIT
+
+// submission for show review
+
+var confirmButton = document.querySelector('.confirm');
+confirmButton.addEventListener('click', function () {
+  // console.log('confirm button clicked!');
+});
+
+var $rating = document.getElementById('stars');
+var $comment = document.querySelector('.comment');
+
+var $confirmReview = document.getElementById('formTwo');
+$confirmReview.addEventListener('submit', function (event) {
+  event.preventDefault();
+  confirmReview();
+  // console.log('submitted');
+});
 
 function confirmReview(event) {
   if (data.editing === null) {
@@ -185,14 +200,4 @@ function confirmReview(event) {
   // console.log(object);
 }
 
-// SUBMIT
-
-// submission for show review
-
-var $rating = document.getElementById('stars');
-var $comment = document.querySelector('.comment');
-
-var $confirmReview = document.getElementById('formTwo');
-$confirmReview.addEventListener('submit', function (event) {
-  event.preventDefault();
-});
+// DOM CREATION FOR ADD TO LIST:
