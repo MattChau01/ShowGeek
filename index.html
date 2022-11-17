@@ -13,6 +13,8 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +26,7 @@
 
   <!--main-->
   <main class="container-body">
-    <!-- home -->
+    <!-- home view -->
     <div data-view="home" class="column-full view hidden">
       <form id="formOne">
         <div class="row">
@@ -47,7 +49,7 @@
         </div>
       </form>
     </div>
-    <!-- result -->
+    <!-- search result -->
     <div data-view="result" class="column-full view hidden">
       <div class="row">
         <div class="column-full">
@@ -98,17 +100,59 @@
         </form>
       </div>
     </div>
-    <!-- list -->
-    <div data-view="list" class="view column-full">
+    <!-- list view -->
+    <div data-view="list" class="view column-full overflow">
 
-      <!-- sample entries -->
+      <!-- sample entries below -->
       <div id="list" class="row-center">
-        <div class="entry-back"></div>
+        <div class="entry-back">
+          <div class="row">
+            <div class="column-third center">
+              <img class="entry-img" src="https://static.tvmaze.com/uploads/images/original_untouched/4/11322.jpg">
+            </div>
+            <div class="column-two-third">
+              <div class="row center">
+                <p class="font-semibold-b"> The Office</p>
+              </div>
+              <div class="row center">
+                <p class="font-light-b">
+                  Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Nostrum, enim. Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Nostrum, enim. Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Nostrum, enim.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-third stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="column-two-third row-center">
+              <i class="fa-solid fa-pencil edit"></i>
+              <i class="fa-solid fa-trash delete"></i>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="row-center">
         <div class="entry-back"></div>
       </div>
-      <!-- sample entries -->
+
+      <!-- <div class="row-center">
+        <div class="entry-back"></div>
+      </div>
+
+      <div class="row-center">
+        <div class="entry-back"></div>
+      </div> -->
+
+      <!-- sample entries above -->
 
     </div>
   </main>
