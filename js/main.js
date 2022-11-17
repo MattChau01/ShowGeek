@@ -6,6 +6,9 @@ $formSubmit.addEventListener('submit', function (event) {
   var object = { search };
   getShowResult(object.search);
   viewSwap('result');
+
+  // add to entries
+
 });
 
 function getShowResult(name) {
@@ -44,7 +47,8 @@ function searchResult(show) {
 
   // parent div 1
   var divOne = document.createElement('div');
-  divOne.setAttribute('class', 'column-full');
+  divOne.classList.add('column-full');
+  divOne.setAttribute('id', 'parOne');
 
   var divOneA = document.createElement('div');
   divOneA.setAttribute('class', 'row-center');
@@ -69,7 +73,8 @@ function searchResult(show) {
 
   // parent div 2
   var divTwo = document.createElement('div');
-  divTwo.setAttribute('class', 'column-full');
+  divTwo.classList.add('column-full');
+  divTwo.setAttribute('id', 'parTwo');
 
   var divTwoA = document.createElement('div');
   divTwoA.setAttribute('class', 'row-center');
@@ -112,11 +117,15 @@ var $home = document.querySelector('.home');
 // var $list = document.querySelector('.list');
 var $back = document.querySelector('.backpage');
 
+var parentElement = document.getElementById('show-result');
+
+// icons
 $home.addEventListener('click', function (event) {
   viewSwap('home');
 });
 $back.addEventListener('click', function (event) {
   viewSwap('home');
+  parentElement.textContent = '';
 });
 
 function viewSwap(dataView) {
