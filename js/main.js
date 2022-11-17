@@ -108,24 +108,30 @@ function searchResult(show) {
 
 }
 
-// VIEW SWAP
+// ICONS
 
 var $view = document.querySelectorAll('.view');
-
 var $home = document.querySelector('.home');
-// var $list = document.querySelector('.list');
+var $list = document.querySelector('.list');
 var $back = document.querySelector('.backpage');
-
 var parentElement = document.getElementById('show-result');
 
-// ICONS
 $home.addEventListener('click', function (event) {
   viewSwap('home');
+  parentElement.textContent = '';
 });
+
 $back.addEventListener('click', function (event) {
   viewSwap('home');
   parentElement.textContent = '';
 });
+
+$list.addEventListener('click', function (event) {
+  viewSwap('list');
+  parentElement.textContent = '';
+});
+
+// VIEW SWAP
 
 function viewSwap(dataView) {
   data.view = dataView;
@@ -133,12 +139,18 @@ function viewSwap(dataView) {
   if (dataView === 'home') {
     $view[0].classList.remove('hidden');
     $view[1].classList.add('hidden');
+    $view[3].classList.add('hidden');
   } else if (dataView === 'add-list') {
     $view[2].classList.remove('hidden');
+  } else if (dataView === 'list') {
+    $view[0].classList.add('hidden');
+    $view[1].classList.add('hidden');
+    $view[3].classList.remove('hidden');
   } else if ((dataView === 'result') || (dataView !== 'home')) {
     $view[0].classList.add('hidden');
     $view[1].classList.remove('hidden');
     $view[2].classList.add('hidden');
+    $view[3].classList.add('hidden');
   }
 }
 
