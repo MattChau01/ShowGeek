@@ -1,14 +1,14 @@
+// SUBMIT
+
+// submission for search results
+
 var $searchRequest = document.querySelector('.search-bar');
 var $formSubmit = document.getElementById('formOne');
 $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
-  var search = $searchRequest.value;
-  var object = { search };
-  getShowResult(object.search);
+  getShowResult($searchRequest.value);
   viewSwap('result');
-
-  // add to entries
-
+  $formSubmit.reset();
 });
 
 function getShowResult(name) {
@@ -21,14 +21,14 @@ function getShowResult(name) {
   xhr.send();
 }
 
-// extract text
+// EXTRACT TEXT
 function textOnly(text) {
   var summary = document.createElement('p');
   summary.innerHTML = text;
   return summary.textContent;
 }
 
-// truncate length
+// TRUNCATE
 function truncate(length, string) {
   var cut = string.slice(0, length) + '...';
   return cut;
@@ -36,7 +36,7 @@ function truncate(length, string) {
 
 // API above
 
-// DOM Creation:
+// DOM CREATION:
 
 function searchResult(show) {
 
@@ -49,7 +49,7 @@ function searchResult(show) {
   divOneA.setAttribute('class', 'row-center');
 
   var titleResult = document.createElement('p');
-  titleResult.setAttribute('class', 'font-bold');
+  titleResult.classList.add('font-bold');
   titleResult.classList.add('title-result');
   // Sample entry
   var titleName = document.createTextNode(show.name);
@@ -108,7 +108,7 @@ function searchResult(show) {
 
 }
 
-// view swap
+// VIEW SWAP
 
 var $view = document.querySelectorAll('.view');
 
@@ -118,7 +118,7 @@ var $back = document.querySelector('.backpage');
 
 var parentElement = document.getElementById('show-result');
 
-// icons
+// ICONS
 $home.addEventListener('click', function (event) {
   viewSwap('home');
 });
@@ -142,7 +142,7 @@ function viewSwap(dataView) {
   }
 }
 
-// modal
+// MODAL
 
 var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
@@ -152,7 +152,32 @@ $cancel.addEventListener('click', function () {
 });
 
 var $confirm = document.querySelector('.confirm');
-$confirm.addEventListener('click', function () {
+$confirm.addEventListener('click', confirmReview);
+
+function confirmReview(event) {
+  if (data.editing === null) {
+    var numberStars = $rating.value;
+    var showReview = $comment.value;
+    var $showTitle = document.querySelector('.title-result');
+    var showName = $showTitle.textContent;
+
+    var object = {
+      name: showName,
+      stars: numberStars,
+      comment: showReview
+    };
+  }
+  return object;
+}
+
+// SUBMIT
+
+// submission for show review
+
+var $rating = document.getElementById('stars');
+var $comment = document.querySelector('.comment');
+
+var $confirmReview = document.getElementById('formTwo');
+$confirmReview.addEventListener('submit', function (event) {
   event.preventDefault();
-  // console.log('click');
 });
