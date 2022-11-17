@@ -166,8 +166,11 @@ function confirmReview(event) {
       stars: numberStars,
       comment: showReview
     };
+
+    object.entryId = data.nextEntryId;
+    data.nextEntryId++;
   }
-  return object;
+  // console.log(object);
 }
 
 // SUBMIT
