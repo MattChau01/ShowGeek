@@ -1,4 +1,12 @@
-.container-body {
+.container-main {
+  display: flex;
+  height: 655px;
+  background-color: #a0baff;
+  background-image: url("/images/movies-background-25.png");
+  background-size: cover;
+}
+
+.container-list {
   display: flex;
   height: 655px;
   background-color: #a0baff;
@@ -323,7 +331,7 @@ textarea {
 }
 
 @media screen and (min-width: 500px) {
-  .container-body {
+  .container-main {
     height: 760px;
   }
 
@@ -372,11 +380,4 @@ textarea {
     width: 200px;
     height: 50px;
   }
-}
-
-/* TEST BELOW */
-
-.row-test {
-  display: flex;
-  margin: 10px;
 }
