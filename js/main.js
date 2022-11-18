@@ -197,6 +197,7 @@ function confirmReview(event) {
     object.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift(object);
+    viewSwap('list');
   }
   // console.log(object);
 }
