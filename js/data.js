@@ -3,6 +3,7 @@
 var data = {
   view: 'home',
   entries: [],
+  searchResults: null,
   editing: null,
   nextEntryId: 1
 };

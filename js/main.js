@@ -17,7 +17,9 @@ function getShowResult(name) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     searchResult(xhr.response);
+    data.searchResults = xhr.response;
   });
+
   xhr.send();
 }
 
@@ -63,6 +65,7 @@ function searchResult(show) {
 
   var imgResult = document.createElement('img');
   imgResult.setAttribute('src', show.image.original);
+  imgResult.id = 'imgSource';
   divOneB.appendChild(imgResult);
   divOne.appendChild(divOneB);
 
@@ -198,8 +201,72 @@ function confirmReview(event) {
     data.nextEntryId++;
     data.entries.unshift(object);
     viewSwap('list');
+
   }
   // console.log(object);
 }
 
 // DOM CREATION FOR ADD TO LIST:
+
+function addToList(entry) {
+
+  // parent div
+  var divPrime = document.createElement('div');
+  divPrime.classList.add('.row-center');
+
+  // background
+  var divBack = document.createElement('div');
+  divBack.classList.add('.entry-back');
+  divPrime.appendChild(divBack);
+
+  // sub parents
+  // // A
+  var div1 = document.createElement('div');
+  div1.classList.add('.row');
+  divBack.appendChild(div1);
+
+  var div1a = document.createElement('div');
+  div1a.classList.add('column-third');
+  div1a.classList.add('center');
+  div1.appendChild(div1a);
+
+  var showImg = document.createElement('img');
+  showImg.setAttribute('src', entry.searchResults.image.original);
+  div1a.appendChild(div1a);
+
+  var div1b = document.createElement('div');
+  div1b.classList.add('column-two-third');
+  div1.appendChild(div1b);
+
+  var div1bA = document.createElement('div');
+  div1bA.classList.add('row');
+  div1bA.classList.add('center');
+  div1b.appendChild(div1b);
+
+  var showName = document.createElement('p');
+  showName.classList.add('font-semi-bold');
+  var nameOfShow = document.createTextNode(entry.entries[0].name);
+  showName.appendChild(nameOfShow);
+  div1bA.appendChild('div1bA');
+
+  var div1bB = document.createElement('div');
+  div1bB.classList.add('row');
+  div1bB.classList.add('center');
+
+  var comment = document.createElement('p');
+  comment.classList.add('font-light-b');
+  var commentText = document.createTextNode(entry.entries[0].comment);
+  comment.appendChild(commentText);
+  div1bB.appendChild(comment);
+
+  // // B
+  var div2 = document.createElement('div');
+  div2.classList.add('.row');
+  divBack.appendChild(div2);
+
+  var div2a = document.createElement('div');
+  div2a.classList.add('column-third');
+  div2a.classList.add('stars');
+}
+
+addToList();
