@@ -7,14 +7,6 @@
   margin-bottom: 100px;
 }
 
-.container-list {
-  display: flex;
-  height: 655px;
-  background-color: #a0baff;
-  background-image: url("/images/movies-background-25.png");
-  background-size: cover;
-}
-
 .row {
   display: flex;
 }
