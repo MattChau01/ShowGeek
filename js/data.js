@@ -2,6 +2,7 @@
 
 var data = {
   view: 'home',
+  prevView: null,
   entries: [],
   searchResults: null,
   editing: null,

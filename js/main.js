@@ -146,6 +146,7 @@ var parentElement = document.getElementById('show-result');
 $home.addEventListener('click', function (event) {
   viewSwap('home');
   parentElement.textContent = '';
+  window.location.reload();
 });
 
 $back.addEventListener('click', function (event) {
@@ -157,6 +158,7 @@ $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
   renderList();
+  window.location.reload();
 });
 
 // MODAL
@@ -164,7 +166,11 @@ $list.addEventListener('click', function (event) {
 var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
   event.preventDefault();
-  viewSwap('result');
+  // var stars = document.getElementById('stars');
+  // stars.value = '';
+  // var comment = document.querySelector('.comment');
+  // comment.value = '';
+  viewSwap(data.prevView);
 });
 
 // SUBMIT
@@ -303,14 +309,20 @@ function addToList(entry) {
     viewSwap('add-list');
 
     // Working here
-    // console.log(event.target.closest('.list-layout').getAttribute('id'));
 
     var entryNumber = event.target.closest('.list-layout').getAttribute('id');
     var parsedNumber = parseInt(entryNumber);
 
+    var prevStars = document.getElementById('stars');
+    var prevComment = document.querySelector('.comment');
+
     for (var p = 0; p < data.entries.length; p++) {
       if (parsedNumber === data.entries[p].entryId) {
         data.editing = data.entries[p];
+
+        // Preload previous data
+        prevStars.value = data.editing.stars;
+        prevComment.value = data.editing.comment;
       }
     }
   });
@@ -354,6 +366,7 @@ function renderList() {
 
 document.addEventListener('DOMContentLoaded', function () {
   renderList();
+  data.prevView = data.view;
   var dataView = data.view;
   if (dataView !== 'result') {
     viewSwap(dataView);
