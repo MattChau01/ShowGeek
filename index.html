@@ -59,47 +59,49 @@
       <div id="show-result" class="row-result">
         <!-- appending DOM here -->
       </div>
-      <!-- add modal here -->
-      <div data-view="add-list" class="view hidden">
+    </div>
 
-        <form id="formTwo">
-          <div class="background">
-            <div class="modal-container">
-              <div class="modal">
-                <p class="modal-header">Would you like to add this show to your list?</p>
-                <div class="row">
-                  <label for="stars" class="modal-body">Add a rating: </label>
-                  <select id="stars" required>
-                    <option>Number of stars</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+    <!-- add modal here -->
+    <div data-view="add-list" class="view hidden">
+
+      <form id="formTwo">
+        <div class="background">
+          <div class="modal-container">
+            <div class="modal">
+              <p class="modal-header">Would you like to add this show to your list?</p>
+              <div class="row">
+                <label for="stars" class="modal-body">Add a rating: </label>
+                <select id="stars" required>
+                  <option>Number of stars</option>
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="row">
+                <label class="modal-body">Add your review:</label>
+              </div>
+              <div class="row-center">
+                <textarea class="comment" placeholder="Type here..." required></textarea>
+              </div>
+              <div class="row">
+                <div class="column-half">
+                  <button data-view="result" class="cancel">CANCEL</button>
                 </div>
-                <div class="row">
-                  <label class="modal-body">Add your review:</label>
-                </div>
-                <div class="row-center">
-                  <textarea class="comment" placeholder="Type here..." required></textarea>
-                </div>
-                <div class="row">
-                  <div class="column-half">
-                    <button data-view="result" class="cancel">CANCEL</button>
-                  </div>
-                  <div class="column-half">
-                    <button class="confirm" type="submit">CONFIRM</button>
-                  </div>
+                <div class="column-half">
+                  <button class="confirm" type="submit">CONFIRM</button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-        </form>
-      </div>
+      </form>
     </div>
+
 
     <!-- list view -->
     <div data-view="list" class="column-full-list view hidden">
@@ -109,6 +111,14 @@
       </div>
 
     </div>
+
+    <!-- EDIT TEST -->
+    <div data-view="edit-list" class="view hidden input-form">
+      <div id="form-three">
+
+      </div>
+    </div>
+
   </main>
 
   <!--footer-->

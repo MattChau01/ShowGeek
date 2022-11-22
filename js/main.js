@@ -38,6 +38,33 @@ function truncate(length, string) {
 
 // API above
 
+// VIEW SWAP
+
+function viewSwap(dataView) {
+  data.view = dataView;
+
+  if (dataView === 'home') {
+    $view[0].classList.remove('hidden');
+    $view[1].classList.add('hidden');
+    $view[2].classList.add('hidden');
+    $view[3].classList.add('hidden');
+  } else if (dataView === 'add-list') {
+    // $view[1].classList.add('hidden');
+    $view[2].classList.remove('hidden');
+    // $view[3].classList.add('hidden');
+  } else if (dataView === 'list') {
+    $view[0].classList.add('hidden');
+    $view[2].classList.add('hidden');
+    $view[1].classList.add('hidden');
+    $view[3].classList.remove('hidden');
+  } else if ((dataView === 'result') || (dataView !== 'home')) {
+    $view[0].classList.add('hidden');
+    $view[1].classList.remove('hidden');
+    $view[2].classList.add('hidden');
+    $view[3].classList.add('hidden');
+  }
+}
+
 // DOM CREATION FOR SEARCH RESULT:
 
 function searchResult(show) {
@@ -131,29 +158,6 @@ $list.addEventListener('click', function (event) {
   parentElement.textContent = '';
   renderList();
 });
-
-// VIEW SWAP
-
-function viewSwap(dataView) {
-  data.view = dataView;
-
-  if (dataView === 'home') {
-    $view[0].classList.remove('hidden');
-    $view[1].classList.add('hidden');
-    $view[3].classList.add('hidden');
-  } else if (dataView === 'add-list') {
-    $view[2].classList.remove('hidden');
-  } else if (dataView === 'list') {
-    $view[0].classList.add('hidden');
-    $view[1].classList.add('hidden');
-    $view[3].classList.remove('hidden');
-  } else if ((dataView === 'result') || (dataView !== 'home')) {
-    $view[0].classList.add('hidden');
-    $view[1].classList.remove('hidden');
-    $view[2].classList.add('hidden');
-    $view[3].classList.add('hidden');
-  }
-}
 
 // MODAL
 
@@ -285,9 +289,8 @@ function addToList(entry) {
   div2.appendChild(div2b);
 
   var editIcon = document.createElement('i');
-  editIcon.classList.add('fa-solid');
-  editIcon.classList.add('fa-pencil');
-  editIcon.classList.add('edit');
+  editIcon.className = ('fa-solid fa-pencil edit');
+  editIcon.setAttribute('data-view', 'add-list');
   div2b.appendChild(editIcon);
 
   // EDIT BUTTON BELOW
@@ -295,6 +298,9 @@ function addToList(entry) {
   editIcon.addEventListener('click', function (event) {
     // console.log('edit clicked');
     // console.log(event.target);
+
+    viewSwap('add-list');
+
   });
 
   // EDIT BUTTON ABOVE

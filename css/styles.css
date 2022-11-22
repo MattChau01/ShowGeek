@@ -325,10 +325,12 @@ textarea {
 
 .edit {
   margin: 15px 40px;
+  cursor: pointer;
 }
 
 .delete {
   margin: 15px 40px;
+  cursor: pointer;
 }
 
 .row-list {
