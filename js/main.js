@@ -290,11 +290,26 @@ function addToList(entry) {
   editIcon.classList.add('edit');
   div2b.appendChild(editIcon);
 
+  // EDIT BUTTON BELOW
+
+  editIcon.addEventListener('click', function (event) {
+  });
+
+  // EDIT BUTTON ABOVE
+
   var deleteIcon = document.createElement('i');
   deleteIcon.classList.add('fa-solid');
   deleteIcon.classList.add('fa-trash');
   deleteIcon.classList.add('delete');
   div2b.appendChild(deleteIcon);
+
+  // DELETE BUTTON BELOW
+
+  deleteIcon.addEventListener('click', function (event) {
+
+  });
+
+  // DELETE BUTTON ABOVE
 
   return divPrime;
 }
