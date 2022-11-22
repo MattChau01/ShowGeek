@@ -318,5 +318,7 @@ function renderList() {
 document.addEventListener('DOMContentLoaded', function () {
   renderList();
   var dataView = data.view;
-  viewSwap(dataView);
+  if (dataView !== 'result') {
+    viewSwap(dataView);
+  }
 });
