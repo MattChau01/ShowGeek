@@ -271,7 +271,7 @@ function addToList(entry) {
   if (data.entries[0].stars <= 5) {
     for (var i = 0; i < numberStars; i++) {
       var stars = document.createElement('i');
-      stars.className = 'fa-solid fa-star';
+      stars.className = 'fa-solid fa-star star-space';
       div2a.appendChild(stars);
       div2.appendChild(div2a);
     }
@@ -293,6 +293,8 @@ function addToList(entry) {
   // EDIT BUTTON BELOW
 
   editIcon.addEventListener('click', function (event) {
+    // console.log('edit clicked');
+    // console.log(event.target);
   });
 
   // EDIT BUTTON ABOVE
@@ -306,7 +308,8 @@ function addToList(entry) {
   // DELETE BUTTON BELOW
 
   deleteIcon.addEventListener('click', function (event) {
-
+    // console.log('delete clicked');
+    // console.log(event.target);
   });
 
   // DELETE BUTTON ABOVE

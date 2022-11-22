@@ -316,7 +316,11 @@ textarea {
 }
 
 .stars {
-  margin: 12px;
+  margin: 15px;
+}
+
+.star-space {
+  margin-right: 5px;
 }
 
 .edit {
