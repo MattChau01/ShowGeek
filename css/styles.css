@@ -1,6 +1,8 @@
 .container-main {
   display: flex;
-  min-height: 77.7vh;
+
+  /* min-height: 77.7vh; */
+  min-height: 90vh;
   background-color: #a0baff;
   background-image: url("/images/movies-background-25.png");
   background-size: cover;

@@ -51,7 +51,7 @@ function viewSwap(dataView) {
   } else if (dataView === 'add-list') {
     // $view[1].classList.add('hidden');
     $view[2].classList.remove('hidden');
-    // $view[3].classList.add('hidden');
+    $view[3].classList.add('hidden');
   } else if (dataView === 'list') {
     $view[0].classList.add('hidden');
     $view[2].classList.add('hidden');
@@ -213,6 +213,7 @@ function addToList(entry) {
   // parent div (WILL APPEND TO ROW-LIST)
   var divPrime = document.createElement('div');
   divPrime.classList.add('list-layout');
+  divPrime.setAttribute('id', entry.entryId);
 
   // background
   var divBack = document.createElement('div');
@@ -301,6 +302,17 @@ function addToList(entry) {
 
     viewSwap('add-list');
 
+    // Working here
+    // console.log(event.target.closest('.list-layout').getAttribute('id'));
+
+    var entryNumber = event.target.closest('.list-layout').getAttribute('id');
+    var parsedNumber = parseInt(entryNumber);
+
+    for (var p = 0; p < data.entries.length; p++) {
+      if (parsedNumber === data.entries[p].entryId) {
+        data.editing = data.entries[p];
+      }
+    }
   });
 
   // EDIT BUTTON ABOVE
@@ -316,6 +328,7 @@ function addToList(entry) {
   deleteIcon.addEventListener('click', function (event) {
     // console.log('delete clicked');
     // console.log(event.target);
+
   });
 
   // DELETE BUTTON ABOVE
