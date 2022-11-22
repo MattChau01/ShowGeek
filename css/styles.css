@@ -346,6 +346,8 @@ textarea {
   justify-content: center;
 }
 
+/* Layout response */
+
 @media screen and (min-width: 500px) {
   .container-main {
     min-height: 82vh;
