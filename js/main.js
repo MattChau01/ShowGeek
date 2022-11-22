@@ -313,6 +313,8 @@ function renderList() {
   }
 }
 
+// Makes sure user can stay on same page when refreshed
+
 document.addEventListener('DOMContentLoaded', function () {
   renderList();
   var dataView = data.view;
