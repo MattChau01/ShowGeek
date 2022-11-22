@@ -1,9 +1,10 @@
-.container-body {
+.container-main {
   display: flex;
-  height: 655px;
+  min-height: 77.7vh;
   background-color: #a0baff;
   background-image: url("/images/movies-background-25.png");
   background-size: cover;
+  margin-bottom: 100px;
 }
 
 .row {
@@ -24,8 +25,16 @@
   flex-basis: 100%;
 }
 
+.column-full-list {
+  flex-basis: 100%;
+}
+
 .column-half {
   flex-basis: calc(100%/2);
+}
+
+.column-two-third {
+  flex-basis: calc(200%/3);
 }
 
 .column-third {
@@ -49,14 +58,14 @@
 
 .font-semibold {
   font-family: Poppins, sans-serif;
-  font-weight: 300;
+  font-weight: 900;
   font-size: 30px;
   color: white;
 }
 
 .font-light {
   font-family: Poppins, sans-serif;
-  font-weight: 200;
+  font-weight: 800;
   font-size: 18px;
   color: white;
 }
@@ -70,9 +79,12 @@
 .footer {
   height: 100px;
   background-color: #608afc;
-  bottom: 0;
   z-index: 20;
   box-shadow: 0 -10px 90px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .film {
@@ -109,6 +121,7 @@
   margin-top: 20px;
   padding-left: 50px;
   font-family: Poppins, sans-serif;
+  font-weight: 600;
   width: 350px;
   height: 50px;
   border: none;
@@ -125,6 +138,7 @@
 .search-button {
   font-family: Poppins, sans-serif;
   font-size: 30px;
+  font-weight: 800;
   color: white;
   background-color: #0f1fb8;
   width: 200px;
@@ -204,6 +218,7 @@
 
 .modal-header {
   font-size: 16px;
+  font-weight: 700;
 }
 
 .modal-body {
@@ -211,6 +226,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 14px;
+  font-weight: 700;
 }
 
 select {
@@ -222,11 +238,12 @@ select {
   text-align: center;
   color: gray;
   cursor: pointer;
+  font-weight: 600;
 }
 
 textarea {
   font-family: Poppins, sans-serif;
-  font-weight: lighter;
+  font-weight: 600;
   font-size: 13px;
   color: gray;
   width: 325px;
@@ -234,14 +251,10 @@ textarea {
   cursor: pointer;
 }
 
-textarea:focus,
-select:focus {
-  border: 1px solid rgb(150 66 233);
-}
-
 .cancel {
   color: black;
   font-family: poppins, sans-serif;
+  font-weight: 700;
   border: none;
   width: 90px;
   height: 40px;
@@ -254,6 +267,7 @@ select:focus {
 .confirm {
   color: black;
   font-family: poppins, sans-serif;
+  font-weight: 700;
   border: none;
   width: 90px;
   height: 40px;
@@ -266,15 +280,71 @@ select:focus {
 .background {
   background-color: rgb(0 0 0 / 70%);
   position: absolute;
-  height: 100%;
+  height: 900px;
   width: 100%;
   top: 0;
   left: 0;
 }
 
+.background-box {
+  background-color: rgb(224 224 224 / 60%);
+  width: 390px;
+  height: 270px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.entry-img {
+  width: 100px;
+  height: 150px;
+  margin-top: 20px;
+}
+
+.font-semibold-b {
+  font-family: Poppins, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: black;
+  height: 5px;
+}
+
+.font-light-b {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: black;
+}
+
+.stars {
+  margin: 12px;
+}
+
+.edit {
+  margin: 15px 40px;
+}
+
+.delete {
+  margin: 15px 40px;
+}
+
+.row-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-layout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Layout response */
+
 @media screen and (min-width: 500px) {
-  .container-body {
-    height: 760px;
+  .container-main {
+    min-height: 82vh;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
   }
 
   .footer {
@@ -288,11 +358,20 @@ select:focus {
   }
 
   .summary {
-    width: 500px;
+    width: 480px;
+  }
+
+  .header {
+    height: 100%;
   }
 }
 
 @media screen and (min-width: 1000px) {
+  .container-main {
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+
   .row-result {
     flex-direction: row;
   }
@@ -317,5 +396,19 @@ select:focus {
   .add-list {
     width: 200px;
     height: 50px;
+  }
+
+  .list-layout {
+    width: 50%;
+  }
+
+  .halves {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-height: 1700px) {
+  .row-list {
+    justify-content: center;
   }
 }

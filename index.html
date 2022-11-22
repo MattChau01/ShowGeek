@@ -13,6 +13,8 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -23,8 +25,8 @@
   </header>
 
   <!--main-->
-  <main class="container-body">
-    <!-- home -->
+  <main class="container-main">
+    <!-- home view -->
     <div data-view="home" class="column-full view">
       <form id="formOne">
         <div class="row">
@@ -47,7 +49,7 @@
         </div>
       </form>
     </div>
-    <!-- result -->
+    <!-- search result -->
     <div data-view="result" class="column-full view hidden">
       <div class="row">
         <div class="column-full">
@@ -98,18 +100,13 @@
         </form>
       </div>
     </div>
-    <!-- list -->
-    <div data-view="list" class="view hidden">
 
-      <!-- Sample data -->
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, ullam soluta.
-        Quam ducimus obcaecati nisi delectus sed debitis beatae perferendis amet, error repellendus
-        adipisci a quis nostrum tempore eveniet vitae aliquam, suscipit officia alias atque voluptatem
-        ut omnis nulla esse. Molestias neque esse minima odio ut tempore voluptatum nihil ipsa.
-      </p>
-      <img src="https://static.tvmaze.com/uploads/images/medium_portrait/269/674004.jpg">
-      <!-- Sample data -->
+    <!-- list view -->
+    <div data-view="list" class="column-full-list view hidden">
+
+      <div class="row-list">
+        <!-- appending new DOM tree here -->
+      </div>
 
     </div>
   </main>

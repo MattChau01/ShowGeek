@@ -17,7 +17,9 @@ function getShowResult(name) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     searchResult(xhr.response);
+    data.searchResults = xhr.response;
   });
+
   xhr.send();
 }
 
@@ -40,7 +42,6 @@ function truncate(length, string) {
 
 function searchResult(show) {
 
-  // parent div 1
   var divOne = document.createElement('div');
   divOne.classList.add('column-full');
   divOne.setAttribute('id', 'parOne');
@@ -62,7 +63,8 @@ function searchResult(show) {
   divOneB.classList.add('img-result');
 
   var imgResult = document.createElement('img');
-  imgResult.setAttribute('src', show.image.medium);
+  imgResult.setAttribute('src', show.image.original);
+  imgResult.id = 'imgSource';
   divOneB.appendChild(imgResult);
   divOne.appendChild(divOneB);
 
@@ -94,9 +96,7 @@ function searchResult(show) {
   var $add = document.createTextNode('Add to list');
   addButton.appendChild($add);
   addButton.addEventListener('click', function () {
-    // console.log(event.target);
     viewSwap('add-list');
-    // $view[2].classList.remove('hidden');
   });
 
   divTwoB.appendChild(addButton);
@@ -129,6 +129,7 @@ $back.addEventListener('click', function (event) {
 $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
+  renderList();
 });
 
 // VIEW SWAP
@@ -164,11 +165,8 @@ $cancel.addEventListener('click', function () {
 
 // SUBMIT
 
-// submission for show review
-
 var confirmButton = document.querySelector('.confirm');
 confirmButton.addEventListener('click', function () {
-  // console.log('confirm button clicked!');
 });
 
 var $rating = document.getElementById('stars');
@@ -178,7 +176,8 @@ var $confirmReview = document.getElementById('formTwo');
 $confirmReview.addEventListener('submit', function (event) {
   event.preventDefault();
   confirmReview();
-  // console.log('submitted');
+  renderList();
+  $confirmReview.reset();
 });
 
 function confirmReview(event) {
@@ -191,13 +190,135 @@ function confirmReview(event) {
     var object = {
       name: showName,
       stars: numberStars,
-      comment: showReview
+      comment: showReview,
+      link: data.searchResults.image.original
     };
 
     object.entryId = data.nextEntryId;
     data.nextEntryId++;
+    data.entries.unshift(object);
+    viewSwap('list');
+
   }
-  // console.log(object);
 }
 
 // DOM CREATION FOR ADD TO LIST:
+
+function addToList(entry) {
+
+  // parent div (WILL APPEND TO ROW-LIST)
+  var divPrime = document.createElement('div');
+  divPrime.classList.add('list-layout');
+
+  // background
+  var divBack = document.createElement('div');
+  divBack.classList.add('background-box');
+  divPrime.appendChild(divBack);
+
+  // sub parents
+  // // A
+  var div1 = document.createElement('div');
+  div1.classList.add('row');
+  divBack.appendChild(div1);
+
+  var div1a = document.createElement('div');
+  div1a.classList.add('column-third');
+  div1a.classList.add('center');
+  div1.appendChild(div1a);
+
+  var showImg = document.createElement('img');
+  showImg.setAttribute('src', entry.link);
+  showImg.classList.add('entry-img');
+  div1a.appendChild(showImg);
+
+  var div1b = document.createElement('div');
+  div1b.classList.add('column-two-third');
+  div1.appendChild(div1b);
+
+  var div1bA = document.createElement('div');
+  div1bA.classList.add('row');
+  div1bA.classList.add('center');
+  div1b.appendChild(div1bA);
+
+  var showName = document.createElement('p');
+  showName.classList.add('font-semibold-b');
+  var nameOfShow = document.createTextNode(entry.name);
+  showName.appendChild(nameOfShow);
+  div1bA.appendChild(showName);
+
+  var div1bB = document.createElement('div');
+  div1bB.classList.add('row');
+  div1bB.classList.add('center');
+  div1b.appendChild(div1bB);
+
+  var comment = document.createElement('p');
+  comment.classList.add('font-light-b');
+  var commentText = document.createTextNode(entry.comment);
+  comment.appendChild(commentText);
+  div1bB.appendChild(comment);
+
+  // // B
+  var div2 = document.createElement('div');
+  div2.classList.add('row');
+  divBack.appendChild(div2);
+
+  var div2a = document.createElement('div');
+  div2a.classList.add('column-third');
+  div2a.classList.add('stars');
+  /// /// STAR GENERATOR:
+
+  var numberStars = parseInt(entry.stars);
+  if (data.entries[0].stars <= 5) {
+    for (var i = 0; i < numberStars; i++) {
+      var stars = document.createElement('i');
+      stars.className = 'fa-solid fa-star';
+      div2a.appendChild(stars);
+      div2.appendChild(div2a);
+    }
+  }
+
+  /// STAR GENERATOR ABOVE
+
+  var div2b = document.createElement('div');
+  div2b.classList.add('column-two-third');
+  div2b.classList.add('row-center');
+  div2.appendChild(div2b);
+
+  var editIcon = document.createElement('i');
+  editIcon.classList.add('fa-solid');
+  editIcon.classList.add('fa-pencil');
+  editIcon.classList.add('edit');
+  div2b.appendChild(editIcon);
+
+  var deleteIcon = document.createElement('i');
+  deleteIcon.classList.add('fa-solid');
+  deleteIcon.classList.add('fa-trash');
+  deleteIcon.classList.add('delete');
+  div2b.appendChild(deleteIcon);
+
+  return divPrime;
+}
+
+function renderList() {
+
+  var $showList = document.querySelector('.row-list');
+  if ($showList.hasChildNodes()) {
+    while ($showList.firstChild) {
+      $showList.removeChild($showList.firstChild);
+    }
+  }
+  for (var j = 0; j < data.entries.length; j++) {
+    var addEntry = addToList(data.entries[j]);
+    $showList.appendChild(addEntry);
+  }
+}
+
+// Makes sure user can stay on same page when refreshed
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderList();
+  var dataView = data.view;
+  if (dataView !== 'result') {
+    viewSwap(dataView);
+  }
+});
