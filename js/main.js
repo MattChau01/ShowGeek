@@ -161,7 +161,7 @@ $back.addEventListener('click', function (event) {
 $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
-  renderList();
+  // renderList();
   window.location.reload();
 });
 
@@ -297,7 +297,12 @@ function addToList(entry) {
   /// /// STAR GENERATOR:
 
   var numberStars = parseInt(entry.stars);
-  if (data.entries[0].stars <= 5) {
+  if (entry.stars === '0') {
+    // console.log('test');
+    var empty = document.createTextNode(' ');
+    div2a.appendChild(empty);
+    div2.appendChild(div2a);
+  } else if (entry.stars <= 5) {
     for (var i = 0; i < numberStars; i++) {
       var stars = document.createElement('i');
       stars.className = 'fa-solid fa-star star-space';
@@ -305,7 +310,6 @@ function addToList(entry) {
       div2.appendChild(div2a);
     }
   }
-
   /// STAR GENERATOR ABOVE
 
   var div2b = document.createElement('div');
@@ -321,12 +325,8 @@ function addToList(entry) {
   // EDIT BUTTON BELOW
 
   editIcon.addEventListener('click', function (event) {
-    // console.log('edit clicked');
     // console.log(event.target);
-
     viewSwap('add-list');
-
-    // Working here
 
     var entryNumber = event.target.closest('.list-layout').getAttribute('id');
     var parsedNumber = parseInt(entryNumber);
@@ -356,8 +356,16 @@ function addToList(entry) {
   // DELETE BUTTON BELOW
 
   deleteIcon.addEventListener('click', function (event) {
+    // console.log(event.target.closest('.list-layout').getAttribute('id'));
     viewSwap('delete');
 
+    var delId = event.target.closest('.list-layout').getAttribute('id');
+    var parsedDelId = parseInt(delId);
+    for (var h = 0; h < data.entries.length; h++) {
+      if (parsedDelId === data.entries[h].entryId) {
+        data.editing = data.entries[h];
+      }
+    }
   });
 
   // DELETE BUTTON ABOVE
@@ -389,3 +397,22 @@ document.addEventListener('DOMContentLoaded', function () {
     viewSwap(dataView);
   }
 });
+
+// Delete DOM
+
+var $confirmDeletion = document.querySelector('.confirm-list');
+$confirmDeletion.addEventListener('click', deleteConfirmed);
+
+function deleteConfirmed(event) {
+  var $deleteDOM = document.querySelectorAll('.list-layout');
+
+  for (var j = 0; j < data.entries.length; j++) {
+    if (data.editing.entryId === data.entries[j].entryId) {
+      data.entries.splice(j, 1);
+      $deleteDOM[j].remove();
+    }
+  }
+
+  viewSwap(data.prevView);
+  $view[4].classList.add('hidden');
+}
