@@ -166,10 +166,6 @@ $list.addEventListener('click', function (event) {
 var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
   event.preventDefault();
-  // var stars = document.getElementById('stars');
-  // stars.value = '';
-  // var comment = document.querySelector('.comment');
-  // comment.value = '';
   viewSwap(data.prevView);
 });
 
