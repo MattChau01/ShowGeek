@@ -48,6 +48,7 @@ function viewSwap(dataView) {
     $view[1].classList.add('hidden');
     $view[2].classList.add('hidden');
     $view[3].classList.add('hidden');
+    $view[4].classList.add('hidden');
   } else if (dataView === 'add-list') {
     // $view[1].classList.add('hidden');
     $view[2].classList.remove('hidden');
@@ -57,6 +58,9 @@ function viewSwap(dataView) {
     $view[2].classList.add('hidden');
     $view[1].classList.add('hidden');
     $view[3].classList.remove('hidden');
+    $view[4].classList.add('hidden');
+  } else if (dataView === 'delete') {
+    $view[4].classList.remove('hidden');
   } else if ((dataView === 'result') || (dataView !== 'home')) {
     $view[0].classList.add('hidden');
     $view[1].classList.remove('hidden');
@@ -166,6 +170,12 @@ $list.addEventListener('click', function (event) {
 var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
   event.preventDefault();
+  viewSwap(data.prevView);
+});
+
+var $cancel2 = document.querySelector('.cancel-list');
+$cancel2.addEventListener('click', function (event) {
+  $view[4].classList.add('hidden');
   viewSwap(data.prevView);
 });
 
@@ -346,8 +356,7 @@ function addToList(entry) {
   // DELETE BUTTON BELOW
 
   deleteIcon.addEventListener('click', function (event) {
-    // console.log('delete clicked');
-    // console.log(event.target);
+    viewSwap('delete');
 
   });
 

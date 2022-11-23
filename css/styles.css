@@ -281,7 +281,33 @@ textarea {
   cursor: pointer;
 }
 
+.cancel-list {
+  color: black;
+  font-family: poppins, sans-serif;
+  font-weight: 700;
+  border: none;
+  width: 90px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f49292;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
 .confirm {
+  color: black;
+  font-family: poppins, sans-serif;
+  font-weight: 700;
+  border: none;
+  width: 90px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #77e56d;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.confirm-list {
   color: black;
   font-family: poppins, sans-serif;
   font-weight: 700;
