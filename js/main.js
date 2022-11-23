@@ -177,6 +177,7 @@ $cancel.addEventListener('click', function () {
 
 var confirmButton = document.querySelector('.confirm');
 confirmButton.addEventListener('click', function () {
+  // console.log('clicked');
 });
 
 var $rating = document.getElementById('stars');
@@ -209,6 +210,17 @@ function confirmReview(event) {
     data.entries.unshift(object);
     viewSwap('list');
 
+    // editing data
+  } else if (data.editing !== null) {
+    // console.log('data being edited');
+    for (var t = 0; t < data.entries.length; t++) {
+      if (data.editing.entryId === data.entries[t].entryId) {
+        data.entries[t].stars = $rating.value;
+        data.entries[t].comment = $comment.value;
+      }
+    }
+    viewSwap('list');
+    data.editing = null;
   }
 }
 
