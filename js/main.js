@@ -1,7 +1,5 @@
 // SUBMIT
 
-// submission for search results
-
 var $searchRequest = document.querySelector('.search-bar');
 var $formSubmit = document.getElementById('formOne');
 $formSubmit.addEventListener('submit', function (event) {
@@ -35,8 +33,6 @@ function truncate(length, string) {
   var cut = string.slice(0, length) + '...';
   return cut;
 }
-
-// API above
 
 // VIEW SWAP
 
@@ -81,9 +77,8 @@ function searchResult(show) {
   divOneA.setAttribute('class', 'row-center');
 
   var titleResult = document.createElement('p');
-  titleResult.classList.add('font-bold');
-  titleResult.classList.add('title-result');
-  // Sample entry
+  titleResult.className = 'font-bold title-result';
+
   var titleName = document.createTextNode(show.name);
   titleResult.appendChild(titleName);
   divOneA.appendChild(titleResult);
@@ -122,8 +117,7 @@ function searchResult(show) {
 
   var addButton = document.createElement('button');
   addButton.setAttribute('data-view', 'add-list');
-  addButton.classList.add('font-bold');
-  addButton.classList.add('add-list');
+  addButton.className = 'font-bold add-list';
   var $add = document.createTextNode('Add to list');
   addButton.appendChild($add);
   addButton.addEventListener('click', function () {
@@ -161,7 +155,6 @@ $back.addEventListener('click', function (event) {
 $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
-  // renderList();
   window.location.reload();
 });
 
@@ -183,7 +176,6 @@ $cancel2.addEventListener('click', function (event) {
 
 var confirmButton = document.querySelector('.confirm');
 confirmButton.addEventListener('click', function () {
-  // console.log('clicked');
 });
 
 var $rating = document.getElementById('stars');
@@ -218,7 +210,6 @@ function confirmReview(event) {
 
     // editing data
   } else if (data.editing !== null) {
-    // console.log('data being edited');
     for (var t = 0; t < data.entries.length; t++) {
       if (data.editing.entryId === data.entries[t].entryId) {
         data.entries[t].stars = $rating.value;
@@ -234,7 +225,7 @@ function confirmReview(event) {
 
 function addToList(entry) {
 
-  // parent div (WILL APPEND TO ROW-LIST)
+  // parent div (APPEND TO ROW-LIST)
   var divPrime = document.createElement('div');
   divPrime.classList.add('list-layout');
   divPrime.setAttribute('id', entry.entryId);
@@ -251,8 +242,7 @@ function addToList(entry) {
   divBack.appendChild(div1);
 
   var div1a = document.createElement('div');
-  div1a.classList.add('column-third');
-  div1a.classList.add('center');
+  div1a.className = 'column-third center';
   div1.appendChild(div1a);
 
   var showImg = document.createElement('img');
@@ -265,8 +255,7 @@ function addToList(entry) {
   div1.appendChild(div1b);
 
   var div1bA = document.createElement('div');
-  div1bA.classList.add('row');
-  div1bA.classList.add('center');
+  div1bA.className = 'row center';
   div1b.appendChild(div1bA);
 
   var showName = document.createElement('p');
@@ -276,8 +265,7 @@ function addToList(entry) {
   div1bA.appendChild(showName);
 
   var div1bB = document.createElement('div');
-  div1bB.classList.add('row');
-  div1bB.classList.add('center');
+  div1bB.className = 'row center';
   div1b.appendChild(div1bB);
 
   var comment = document.createElement('p');
@@ -292,13 +280,12 @@ function addToList(entry) {
   divBack.appendChild(div2);
 
   var div2a = document.createElement('div');
-  div2a.classList.add('column-third');
-  div2a.classList.add('stars');
+  div2a.className = 'column-third stars';
+
   /// /// STAR GENERATOR:
 
   var numberStars = parseInt(entry.stars);
   if (entry.stars === '0') {
-    // console.log('test');
     var empty = document.createTextNode(' ');
     div2a.appendChild(empty);
     div2.appendChild(div2a);
@@ -313,19 +300,17 @@ function addToList(entry) {
   /// STAR GENERATOR ABOVE
 
   var div2b = document.createElement('div');
-  div2b.classList.add('column-two-third');
-  div2b.classList.add('row-center');
+  div2b.className = 'column-two-third row-center';
   div2.appendChild(div2b);
 
   var editIcon = document.createElement('i');
-  editIcon.className = ('fa-solid fa-pencil edit');
+  editIcon.className = 'fa-solid fa-pencil edit';
   editIcon.setAttribute('data-view', 'add-list');
   div2b.appendChild(editIcon);
 
-  // EDIT BUTTON BELOW
+  // EDIT BUTTON
 
   editIcon.addEventListener('click', function (event) {
-    // console.log(event.target);
     viewSwap('add-list');
 
     var entryNumber = event.target.closest('.list-layout').getAttribute('id');
@@ -345,18 +330,13 @@ function addToList(entry) {
     }
   });
 
-  // EDIT BUTTON ABOVE
-
   var deleteIcon = document.createElement('i');
-  deleteIcon.classList.add('fa-solid');
-  deleteIcon.classList.add('fa-trash');
-  deleteIcon.classList.add('delete');
+  deleteIcon.className = 'fa-solid fa-trash delete';
   div2b.appendChild(deleteIcon);
 
-  // DELETE BUTTON BELOW
+  // DELETE BUTTON
 
   deleteIcon.addEventListener('click', function (event) {
-    // console.log(event.target.closest('.list-layout').getAttribute('id'));
     viewSwap('delete');
 
     var delId = event.target.closest('.list-layout').getAttribute('id');
@@ -367,8 +347,6 @@ function addToList(entry) {
       }
     }
   });
-
-  // DELETE BUTTON ABOVE
 
   return divPrime;
 }
@@ -387,7 +365,7 @@ function renderList() {
   }
 }
 
-// Makes sure user can stay on same page when refreshed
+// Stays on same page when refreshed
 
 document.addEventListener('DOMContentLoaded', function () {
   renderList();
