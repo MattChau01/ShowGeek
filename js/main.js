@@ -2,10 +2,12 @@
 
 var $searchRequest = document.querySelector('.search-bar');
 var $formSubmit = document.getElementById('formOne');
+var $loader = document.getElementById('loader');
 $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
+  $loader.classList.remove('hidden');
   getShowResult($searchRequest.value);
-  viewSwap('result');
+  // viewSwap('result');
   $formSubmit.reset();
 });
 
@@ -14,8 +16,16 @@ function getShowResult(name) {
   xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q=' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    searchResult(xhr.response);
-    data.searchResults = xhr.response;
+    if (xhr.status === 200) {
+      searchResult(xhr.response);
+      data.searchResults = xhr.response;
+      viewSwap('result');
+
+    } else if (xhr.status === 0) {
+      alert('Server failure. Please try another search.');
+    } else {
+      alert('Invalid search! Please click the back arrow and try again.');
+    }
   });
 
   xhr.send();
@@ -45,6 +55,7 @@ function viewSwap(dataView) {
     $view[2].classList.add('hidden');
     $view[3].classList.add('hidden');
     $view[4].classList.add('hidden');
+    $loader.classList.add('hidden');
   } else if (dataView === 'add-list') {
     // $view[1].classList.add('hidden');
     $view[2].classList.remove('hidden');

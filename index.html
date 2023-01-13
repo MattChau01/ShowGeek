@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
   <!--header-->
@@ -42,11 +45,14 @@
         </div>
         <div class="row-center">
           <div class="column-full search-column">
-            <input name="searchbar" id="search" required type="text" placeholder=" Search here..." class="search-bar">
+            <input autocomplete="off" name="searchbar" id="search" required type="text" placeholder=" Search here..." class="search-bar">
           </div>
         </div>
         <div class="row-center">
           <button type="submit" class="search-button" data-view="result">Search</button>
+        </div>
+        <div class="row-center hidden" id="loader">
+          <div class="lds-dual-ring"></div>
         </div>
       </form>
     </div>
@@ -145,4 +151,5 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
