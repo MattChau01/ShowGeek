@@ -1,0 +1,60 @@
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container-main {
+    min-height: 85vh;
+    justify-content: space-evenly;
+  }
+
+  .footer {
+    height: 80px;
+  }
+
+  .search-header {
+    margin-top: 9rem;
+    font-size: 2.2rem;
+  }
+
+  .summary {
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container-main {
+    justify-content: space-evenly;
+    min-height: 85vh;
+  }
+
+  .row-result {
+    flex-direction: row;
+  }
+
+  .img-result {
+    width: 100%;
+    height: 320px;
+  }
+
+  .summary {
+    margin-top: 4rem;
+    margin-right: 1rem;
+    padding: 1.5rem;
+  }
+
+  .add-list {
+    width: 200px;
+    height: 50px;
+  }
+
+  .list-layout {
+    width: 50%;
+  }
+}
