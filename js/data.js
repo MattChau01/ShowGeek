@@ -1,5 +1,3 @@
-/* exported data */
-
 var data = {
   view: 'home',
   prevView: null,

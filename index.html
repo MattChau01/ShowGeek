@@ -7,8 +7,8 @@
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
@@ -16,21 +16,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
-
-  <!--header-->
   <header class="row header">
     <i class="fa-solid fa-film film"></i>
     <p class="font-bold">ShowGeek</p>
   </header>
-
-  <!--main-->
   <main class="container-main">
-
-    <!-- home view -->
     <div data-view="home" class="column-full view">
       <form id="formOne">
         <div class="row">
@@ -54,10 +46,11 @@
         <div class="row-center hidden" id="loader">
           <div class="lds-dual-ring"></div>
         </div>
+        <div class="row-center" id="invalid">
+          <p class="font-light">Invalid search! Please try again.</p>
+        </div>
       </form>
     </div>
-
-    <!-- search result -->
     <div data-view="result" class="column-full view hidden">
       <div class="row">
         <div class="column-full">
@@ -65,11 +58,8 @@
         </div>
       </div>
       <div id="show-result" class="row-result">
-        <!-- appending DOM result here -->
       </div>
     </div>
-
-    <!-- add modal here -->
     <div data-view="add-list" class="view hidden">
       <form id="formTwo">
         <div class="background">
@@ -107,15 +97,10 @@
         </div>
       </form>
     </div>
-
-    <!-- list view -->
-    <div data-view="list" class="column-full-list view hidden">
+    <div data-view="list" class="column-full view hidden">
       <div class="row-list">
-        <!-- appending DOM tree list here -->
       </div>
     </div>
-
-    <!-- delete modal -->
     <div data-view="delete" class="view hidden" id="delete">
       <div class="background-list">
         <div class="modal-container">
@@ -133,10 +118,7 @@
         </div>
       </div>
     </div>
-
   </main>
-
-  <!--footer-->
   <footer>
     <div class="row-center footer">
       <div class="column-half center">
@@ -147,9 +129,7 @@
       </div>
     </div>
   </footer>
-
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
-
 </html>

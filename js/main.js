@@ -1,5 +1,3 @@
-// SUBMIT
-
 var $searchRequest = document.querySelector('.search-bar');
 var $formSubmit = document.getElementById('formOne');
 var $loader = document.getElementById('loader');
@@ -7,44 +5,42 @@ $formSubmit.addEventListener('submit', function (event) {
   event.preventDefault();
   $loader.classList.remove('hidden');
   getShowResult($searchRequest.value);
-  // viewSwap('result');
   $formSubmit.reset();
 });
 
+var $invalid = document.getElementById('invalid');
+$invalid.classList.add('hidden');
+$searchRequest.addEventListener('click', () => {
+  $loader.classList.add('hidden');
+  $invalid.classList.add('hidden');
+});
 function getShowResult(name) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q=' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     if (xhr.status === 200) {
+      $loader.classList.add('hidden');
       searchResult(xhr.response);
       data.searchResults = xhr.response;
       viewSwap('result');
-
-    } else if (xhr.status === 0) {
-      alert('Server failure. Please try another search.');
     } else {
-      alert('Invalid search! Please click the back arrow and try again.');
+      $invalid.classList.remove('hidden');
     }
   });
-
   xhr.send();
 }
 
-// EXTRACT TEXT
 function textOnly(text) {
   var summary = document.createElement('p');
   summary.innerHTML = text;
   return summary.textContent;
 }
 
-// TRUNCATE
 function truncate(length, string) {
   var cut = string.slice(0, length) + '...';
   return cut;
 }
-
-// VIEW SWAP
 
 function viewSwap(dataView) {
   data.view = dataView;
@@ -57,7 +53,6 @@ function viewSwap(dataView) {
     $view[4].classList.add('hidden');
     $loader.classList.add('hidden');
   } else if (dataView === 'add-list') {
-    // $view[1].classList.add('hidden');
     $view[2].classList.remove('hidden');
     $view[3].classList.add('hidden');
   } else if (dataView === 'list') {
@@ -75,8 +70,6 @@ function viewSwap(dataView) {
     $view[3].classList.add('hidden');
   }
 }
-
-// DOM CREATION FOR SEARCH RESULT:
 
 function searchResult(show) {
 
@@ -105,7 +98,6 @@ function searchResult(show) {
   divOneB.appendChild(imgResult);
   divOne.appendChild(divOneB);
 
-  // parent div 2
   var divTwo = document.createElement('div');
   divTwo.classList.add('column-full');
   divTwo.setAttribute('id', 'parTwo');
@@ -128,8 +120,8 @@ function searchResult(show) {
 
   var addButton = document.createElement('button');
   addButton.setAttribute('data-view', 'add-list');
-  addButton.className = 'font-bold add-list';
-  var $add = document.createTextNode('Add to list');
+  addButton.className = 'add-list';
+  var $add = document.createTextNode('Add show');
   addButton.appendChild($add);
   addButton.addEventListener('click', function () {
     viewSwap('add-list');
@@ -144,8 +136,6 @@ function searchResult(show) {
 
 }
 
-// ICONS
-
 var $view = document.querySelectorAll('.view');
 var $home = document.querySelector('.home');
 var $list = document.querySelector('.list');
@@ -155,7 +145,6 @@ var parentElement = document.getElementById('show-result');
 $home.addEventListener('click', function (event) {
   viewSwap('home');
   parentElement.textContent = '';
-  window.location.reload();
 });
 
 $back.addEventListener('click', function (event) {
@@ -166,10 +155,7 @@ $back.addEventListener('click', function (event) {
 $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
-  window.location.reload();
 });
-
-// MODAL
 
 var $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
@@ -182,8 +168,6 @@ $cancel2.addEventListener('click', function (event) {
   $view[4].classList.add('hidden');
   viewSwap(data.prevView);
 });
-
-// SUBMIT
 
 var confirmButton = document.querySelector('.confirm');
 confirmButton.addEventListener('click', function () {
@@ -219,7 +203,6 @@ function confirmReview(event) {
     data.entries.unshift(object);
     viewSwap('list');
 
-    // editing data
   } else if (data.editing !== null) {
     for (var t = 0; t < data.entries.length; t++) {
       if (data.editing.entryId === data.entries[t].entryId) {
@@ -232,22 +215,16 @@ function confirmReview(event) {
   }
 }
 
-// DOM CREATION FOR ADD TO LIST:
-
 function addToList(entry) {
 
-  // parent div (APPEND TO ROW-LIST)
   var divPrime = document.createElement('div');
   divPrime.classList.add('list-layout');
   divPrime.setAttribute('id', entry.entryId);
 
-  // background
   var divBack = document.createElement('div');
   divBack.classList.add('background-box');
   divPrime.appendChild(divBack);
 
-  // sub parents
-  // // A
   var div1 = document.createElement('div');
   div1.classList.add('row');
   divBack.appendChild(div1);
@@ -285,15 +262,12 @@ function addToList(entry) {
   comment.appendChild(commentText);
   div1bB.appendChild(comment);
 
-  // // B
   var div2 = document.createElement('div');
   div2.classList.add('row');
   divBack.appendChild(div2);
 
   var div2a = document.createElement('div');
   div2a.className = 'column-third stars';
-
-  /// /// STAR GENERATOR:
 
   var numberStars = parseInt(entry.stars);
   if (entry.stars === '0') {
@@ -308,7 +282,6 @@ function addToList(entry) {
       div2.appendChild(div2a);
     }
   }
-  /// STAR GENERATOR ABOVE
 
   var div2b = document.createElement('div');
   div2b.className = 'column-two-third row-center';
@@ -318,8 +291,6 @@ function addToList(entry) {
   editIcon.className = 'fa-solid fa-pencil edit';
   editIcon.setAttribute('data-view', 'add-list');
   div2b.appendChild(editIcon);
-
-  // EDIT BUTTON
 
   editIcon.addEventListener('click', function (event) {
     viewSwap('add-list');
@@ -333,8 +304,6 @@ function addToList(entry) {
     for (var p = 0; p < data.entries.length; p++) {
       if (parsedNumber === data.entries[p].entryId) {
         data.editing = data.entries[p];
-
-        // Preload previous data
         prevStars.value = data.editing.stars;
         prevComment.value = data.editing.comment;
       }
@@ -345,11 +314,8 @@ function addToList(entry) {
   deleteIcon.className = 'fa-solid fa-trash delete';
   div2b.appendChild(deleteIcon);
 
-  // DELETE BUTTON
-
   deleteIcon.addEventListener('click', function (event) {
     viewSwap('delete');
-
     var delId = event.target.closest('.list-layout').getAttribute('id');
     var parsedDelId = parseInt(delId);
     for (var h = 0; h < data.entries.length; h++) {
@@ -358,12 +324,10 @@ function addToList(entry) {
       }
     }
   });
-
   return divPrime;
 }
 
 function renderList() {
-
   var $showList = document.querySelector('.row-list');
   if ($showList.hasChildNodes()) {
     while ($showList.firstChild) {
@@ -376,8 +340,6 @@ function renderList() {
   }
 }
 
-// Stays on same page when refreshed
-
 document.addEventListener('DOMContentLoaded', function () {
   renderList();
   data.prevView = data.view;
@@ -386,8 +348,6 @@ document.addEventListener('DOMContentLoaded', function () {
     viewSwap(dataView);
   }
 });
-
-// Delete DOM
 
 var $confirmDeletion = document.querySelector('.confirm-list');
 $confirmDeletion.addEventListener('click', deleteConfirmed);
