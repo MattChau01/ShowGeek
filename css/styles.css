@@ -1,10 +1,38 @@
 .container-main {
   display: flex;
-  min-height: 90vh;
+  min-height: 89vh;
   background-color: #a0baff;
   background-image: url("../images/movies-background-25.png");
-  background-size: cover;
-  margin-bottom: 100px;
+  background-size: contain;
+}
+
+.lds-dual-ring {
+  margin-top: 10px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring::after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .row {
@@ -77,7 +105,7 @@
 }
 
 .footer {
-  height: 100px;
+  height: 80px;
   background-color: #608afc;
   z-index: 20;
   box-shadow: 0 -10px 90px;
@@ -108,7 +136,7 @@
 }
 
 .search-header {
-  margin-top: 40%;
+  margin-top: 30%;
   text-shadow: 0 5px 70px;
   font-size: 30px;
 }
@@ -335,7 +363,7 @@ textarea {
 
 .background-box {
   background-color: rgb(224 224 224 / 60%);
-  width: 390px;
+  width: 368px;
   height: 270px;
   margin: 15px 0;
   text-align: center;
@@ -363,6 +391,7 @@ textarea {
 }
 
 .stars {
+  font-size: 15px;
   margin: 15px;
 }
 
