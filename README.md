@@ -1,9 +1,11 @@
 # :film_projector:	ShowGeek
 
-ShowGeek is a web application for TV show fans who want to document and keep track of personal show reviews. This application uses an API called TVMaze. It's a public API that stores information about television shows across different streaming platforms such as Netflix, Hulu, and many more!
+ShowGeek is a web application for TV show fanatics who want to document and keep track of personal show reviews. This application uses an API called TVMaze. It's a public API that holds information about television shows across different streaming platforms such as Netflix, Hulu, and many more!
 
-As an avid user of streaming platforms, I was inspired to build this project by an existing online database called [IMDb](https://www.imdb.com/). The reviews functionality was inspired by another database called [Rotten Tomatoes](https://www.rottentomatoes.com/). The combination of these two inspirations formed ShowGeek!
+As an avid user of streaming platforms, I was inspired to build this project by an existing online database called [IMDb](https://www.imdb.com/). The review functionality was inspired by another database called [Rotten Tomatoes](https://www.rottentomatoes.com/). The combination of these two inspirations formed ShowGeek! With this application, anyone can keep track of the shows they watch on their mobile device or computer.
 
+
+## Feel free to check it out!
 Link to live deployment: https://mattchau01.github.io/ajax-project/
 
 ## Technologies used
