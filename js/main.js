@@ -51,6 +51,7 @@ function viewSwap(dataView) {
     $view[2].classList.add('hidden');
     $view[3].classList.add('hidden');
     $view[4].classList.add('hidden');
+    $view[5].classList.add('hidden');
     $loader.classList.add('hidden');
   } else if (dataView === 'add-list') {
     $view[2].classList.remove('hidden');
@@ -155,6 +156,15 @@ $back.addEventListener('click', function (event) {
 $list.addEventListener('click', function (event) {
   viewSwap('list');
   parentElement.textContent = '';
+
+  if (data.entries.length === 0) {
+    $view[5].classList.remove('hidden');
+    $view[3].classList.add('hidden');
+  } else {
+    $view[5].classList.add('hidden');
+    $view[3].classList.remove('hidden');
+  }
+
 });
 
 var $cancel = document.querySelector('.cancel');
