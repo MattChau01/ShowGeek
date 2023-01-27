@@ -6,7 +6,7 @@ As an avid user of streaming platforms, I was inspired to build this project by 
 
 
 ## Feel free to check it out!
-Link to live deployment: https://mattchau01.github.io/ajax-project/
+Link to live deployment: https://mattchau01.github.io/ShowGeek/
 
 ## Technologies used
 
