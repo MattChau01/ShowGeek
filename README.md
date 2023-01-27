@@ -6,7 +6,7 @@ As an avid user of streaming platforms, I was inspired to build this project by 
 
 
 ## Feel free to check it out!
-Link to live deployment: https://mattchau01.github.io/ajax-project/
+Link to live deployment: https://mattchau01.github.io/ShowGeek/
 
 ## Technologies used
 
@@ -32,9 +32,9 @@ Link to live deployment: https://mattchau01.github.io/ajax-project/
 
 ## Demos
 
-- How to search up a show <br>
-  <img src="/assets/demo1.gif" alt="demo1">
-- How to add a show to list <br>
+<strong>How to search up a show</strong> <br>
+  <img src="/assets/demo1.gif" alt="demo1"> <br>
+<strong>How to add a show to list</strong> <br>
   <img src="/assets/demo2.gif" alt="demo2">
 
 ## Stretch features
@@ -42,6 +42,7 @@ Link to live deployment: https://mattchau01.github.io/ajax-project/
 - Make the summary box scrollable to allow the full TV show summary
 
 ## Getting started
+
 1. Create a basic outline of the project
     - index.html
     - css (directory)

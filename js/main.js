@@ -62,6 +62,8 @@ function viewSwap(dataView) {
     $view[1].classList.add('hidden');
     $view[3].classList.remove('hidden');
     $view[4].classList.add('hidden');
+    // test
+    $invalid.classList.add('hidden');
   } else if (dataView === 'delete') {
     $view[4].classList.remove('hidden');
   } else if ((dataView === 'result') || (dataView !== 'home')) {

@@ -2,7 +2,7 @@
   display: flex;
   min-height: 100vh;
   background-color: #a0baff;
-  background-image: url("../images/movies-background-25.png");
+  background-image: url("../images/movies-background-compressed.png");
   background-size: contain;
 }
 
