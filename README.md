@@ -19,13 +19,13 @@ If you would like to see a visual tutorial click [here](#demos) to see a demo!
 
 ## Technologies used
 
-JavaScript <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/javascript.png" width="60" height="60" />
+<br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/javascript.png" width="60" height="60" />
 
 
-HTML <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/html.png" width="60" height="60" />
+<br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/html.png" width="60" height="60" />
 
 
-CSS <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/css.png" width="60" height="60" />
+<br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/css.png" width="60" height="60" />
 
 [TVMAZE](https://www.tvmaze.com/api) <br><img src="https://static.tvmaze.com/images/tvm-header-logo.png" width="100" height="50" />
 
