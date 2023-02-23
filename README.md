@@ -6,19 +6,28 @@ As an avid user of streaming platforms, I was inspired to build this project by 
 
 
 ## Feel free to check it out!
-Link to live deployment: https://mattchau01.github.io/ShowGeek/
+[Click here to try this app!](https://mattchau01.github.io/ShowGeek/) :point_left:
+
+Tutorial:
+
+1. Click on the search bar and type in a TV show of your choice.
+2. Click on the `search` button and wait for the next screen to load.
+3. Click on `add show` to fill out your `rating` and `review` in the modal.
+4. Click on `confirm` to see it added to your list! :raised_hands:
+
+If you would like to see a visual tutorial click [here](#demos) to see a demo!
 
 ## Technologies used
 
-- JavaScript <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/javascript.png" width="60" height="60" />
+JavaScript <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/javascript.png" width="60" height="60" />
 
 
-- HTML <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/html.png" width="60" height="60" />
+HTML <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/html.png" width="60" height="60" />
 
 
-- CSS <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/css.png" width="60" height="60" />
+CSS <br><img src="https://raw.githubusercontent.com/MattChau01/rc1022-code-solutions/3b0735d1400706dd0614fd244486d9b6b3c82a4e/javascript-view-swapping/images/css.png" width="60" height="60" />
 
-- [TVMAZE](https://www.tvmaze.com/api) <br><img src="https://static.tvmaze.com/images/tvm-header-logo.png" width="100" height="50" />
+[TVMAZE](https://www.tvmaze.com/api) <br><img src="https://static.tvmaze.com/images/tvm-header-logo.png" width="100" height="50" />
 
 
 ## Application features
@@ -32,9 +41,10 @@ Link to live deployment: https://mattchau01.github.io/ShowGeek/
 
 ## Demos
 
-<strong>How to search up a show</strong> <br>
+<h3><strong>How to search up a show</strong></h3> <br>
   <img src="/assets/demo1.gif" alt="demo1"> <br>
-<strong>How to add a show to list</strong> <br>
+<br />
+<h3><strong>How to add a show to list</strong></h3> <br>
   <img src="/assets/demo2.gif" alt="demo2">
 
 ## Stretch features
@@ -43,12 +53,16 @@ Link to live deployment: https://mattchau01.github.io/ShowGeek/
 
 ## Getting started
 
-1. Create a basic outline of the project
+1. Create an outline of the project
     - index.html
+      - Create multiple `views` to allow users to redirect `views` when clicked on `anchor tags` or `links`
     - css (directory)
         - styles.css
     - js (directory)
         - data.js
         - main.js
 2. Get familiar with how [TVMAZE](https://www.tvmaze.com/api) works
-    - To generate a single result per search, you can use the [single search](https://www.tvmaze.com/api#show-single-search) functionality.
+    - To generate a single result per search, you can use the [single search](https://www.tvmaze.com/api#show-single-search) in your fetch request
+    - Take a look at this [example](https://api.tvmaze.com/singlesearch/shows?q=stranger+things), notice that the end of a URL contains the `string` of a TV show
+    - This project pulls data for the `name`, `summary`, and `image` of the result to print to the browser
+3. Store data from user input into local storage to generate in list view
